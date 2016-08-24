@@ -1,12 +1,5 @@
 # Lab 3: Rekursion, Generalisering & Funktionspekare
 
-TODO:
-
-* Note on type punning
-* Fixa problem med strdup som inte finns
-
-END TODO
-
 ## Uppvärmning: strängfunktioner
 
 Skapa ett program `str.c`.

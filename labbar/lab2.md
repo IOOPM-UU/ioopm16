@@ -1,11 +1,5 @@
 # Lab 2: I/O och funktioner
 
-TODO:
-
-* funktionsprototyper längst upp
-* något om GDB
-
-
 ## Uppvärmning: Fizz Buzz
 
 Fizz Buzz är en klassisk programmeringsövning som går ut på att
@@ -395,7 +389,7 @@ kan spara den inlästa strängen.
 
 Nu skall vi skapa vår första **header-fil**! Skapa `utils.h` i
 samma katalog som `utils.c` och _flytta_ dit samtliga
-funktionsprotoyper från `utils.c`. I `utils.h` borde det nu alltså
+funktionsprototyper från `utils.c`. I `utils.h` borde det nu alltså
 åtminstone stå:
 
 ```c
