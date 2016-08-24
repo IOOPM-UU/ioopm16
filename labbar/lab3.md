@@ -2,7 +2,7 @@
 
 TODO:
 
-* Note on type punning 
+* Note on type punning
 * Fixa problem med strdup som inte finns
 
 END TODO
@@ -32,7 +32,7 @@ sträng och returnerar ett heltal som avser hur många tecken som
 var i strängen. Du kan t.ex. använda en loop och en
 heltalsvariabel som räknare för att lösa uppgiften. För varje varv
 i loopen, gå ett steg längre "till höger" i arrayen, och leta
-efter ett `'\0'`-tecken. Antalet gångna steg är strängens längd. 
+efter ett `'\0'`-tecken. Antalet gångna steg är strängens längd.
 
 Testa ditt program genom att jämföra dess output med `strlen()`
 som finns i `string.h`. Du kan t.ex. skriva så här:
@@ -57,8 +57,8 @@ int main(int argc, char *argv[])
 }
 ```
 
-Observera att för att skriva ut `"` inuti en sträng så måste vi 
-"escap:a dem", dvs. skriva dem som `\"`. Tecknet `\t` står för 
+Observera att för att skriva ut `"` inuti en sträng så måste vi
+"escape:a dem", dvs. skriva dem som `\"`. Tecknet `\t` står för
 tab.
 
 Exempelkörning:
@@ -67,7 +67,7 @@ Exempelkörning:
     > ./a.out hej hopp
     strlen("hej")=3    string_length("hej")=3
     strlen("hopp")=4   string_length("hopp")=4
-    > 
+    >
 
 Ovan kan vi se att `strlen()` och `string_length()` ger samma svar
 för de ord vi skickade in vilket ger förhoppning om att
@@ -79,7 +79,7 @@ för de ord vi skickade in vilket ger förhoppning om att
 Analogt med hur vi har använt funktionen `getchar()` för att läsa
 in tecken för tecken kan vi använda funktionen `putchar()` för att
 skriva tecken för tecken. Om jag t.ex. har en sträng `s` kan jag
-skriva `putchar(s[3])` för att skriva ut dess fjärde tecken. 
+skriva `putchar(s[3])` för att skriva ut dess fjärde tecken.
 
 1. Implementera funktionen `print()` som tar en sträng och skriver
    ut den på terminalen (med hjälp av `putchar()`) fast **utan**
@@ -88,14 +88,14 @@ skriva `putchar(s[3])` för att skriva ut dess fjärde tecken.
    som tar en sträng och skriver ut den på terminalen (med hjälp
    av `print()`) **med** en avslutande radbrytning. Jämför med
    `puts()` i ditt program för att kontrollera att du gör rätt.
-3. Lägg till `print()` och `println()` i `utils`-biblioteket! 
+3. Lägg till `print()` och `println()` i `utils`-biblioteket!
 
 
 
 ## Rekursion i C
 
 Du är bekant med rekursionsbegreppet sedan PKD. Rekursion i C
-fungerar i stort sett likadant. I lab 1 implementerade du ett
+fungerar i stort sett likadant. I lab 1 var en extrauppgift att implementera ett
 program som skrev ut tal ur Fibonacci-serien på ett _imperativt_
 sätt. Nedan följer ett liknande program, som bara skriver ut det
 sista talet i serien och inte varenda tal på vägen dit. Målet med
@@ -111,15 +111,15 @@ kan skriva en annan imperativ funktion med rekursion.
 int fib(int num)
 {
   int ppf = 0; // the two given fib values
-  int pf  = 1; 
-  
+  int pf  = 1;
+
   for (int i = 0; i < num; ++i)
   {
     int tmp = pf;
     pf = ppf + pf;
     ppf = tmp;
   }
-  
+
   return pf;
 }
 
@@ -167,10 +167,10 @@ long sum(int numbers[], int numbers_siz)
 
 En rekursiv motsvarighet kan skrivas utifrån insikten att summan
 av en serie av N tal är lika med det första talet + summan av
-resterande tal. Alltså, om vi vill beräkna `sum([1, 2, 3, 4])` 
+resterande tal. Alltså, om vi vill beräkna `sum([1, 2, 3, 4])`
 så kan vi räkna ut den som `1 + sum([2, 3, 4])`, och så vidare,
-där basfallet är `sum([]) = 0`, alltså summan av alla tal i en 
-tom array är 0. 
+där basfallet är `sum([]) = 0`, alltså summan av alla tal i en
+tom array är 0.
 
 Så här skulle vi kunna skriva C-kod som fungerar på detta sätt:
 
@@ -188,7 +188,7 @@ long rec_sum(int numbers[], int numbers_siz, int index)
 }
 ```
 
-Om vi använder `rec_sum` för att summera arrayen `[1, 2, 3]` 
+Om vi använder `rec_sum` för att summera arrayen `[1, 2, 3]`
 kommer vi att göra följande steg (förenklat):
 
 1. `rec_sum([1, 2, 3]) = return 1 + rec_sum([2, 3])`
@@ -209,12 +209,12 @@ Vi kan nu implementera `sum()` i termer av `rec_sum()`:
 ```c
 long sum(int numbers[], int numbers_siz)
 {
-  return rec_sum(numbers, numbers_siz, 0); 
+  return rec_sum(numbers, numbers_siz, 0);
 }
 ```
 
-**Nu återgår vi till uppgiften**: skriv om `fib()`-funktionen i 
-programmet längst upp på sidan så att den är **rekursiv**. 
+**Nu återgår vi till uppgiften**: skriv om `fib()`-funktionen i
+programmet längst upp på sidan så att den är **rekursiv**.
 
 **Ledning:**
 Vi upprepar den rekursiva definitionen av Fibonacci-serien från lab1:
@@ -222,7 +222,7 @@ Vi upprepar den rekursiva definitionen av Fibonacci-serien från lab1:
     fib(1) = 0
     fib(2) = 1
     fib(i) = fib(i-1) + fib(i-2) om i > 2
-    
+
 En något mer C-lik pseudokod skulle vara:
 
     fib(i) = 0                     om i = 0
@@ -233,10 +233,10 @@ Senare under kursen skall vi diskutera problemet med ändligt
 utrymme på stacken och djup rekursion. Ett anrop till `rec_sum()`
 med en väldigt stor array kommer sannolikt att krascha programmet
 om inte kompilatorn är smart nog att översätta rekursionen till
-en loop -- mer om detta senare alltså. 
+en loop -- mer om detta senare alltså.
 
 **Testa** att ditt program är korrekt genom att jämföra dess resultat
-med resultatet från ditt imperativa program. 
+med resultatet från ditt imperativa program.
 
 ## Funktionspekare
 
@@ -246,7 +246,7 @@ med dem men vi har sett att strängar i C är pekare (`char *`), och
 att vi skickat in pekare till `int`:ar i `scanf()`. Nu skall vi
 stifta bekantskap med pekare till _funktioner_. Detta motsvarar
 högre ordningens funktioner som du använt i Haskell, t.ex. när du
-skickat in en funktion och en datasamling till `map`. 
+skickat in en funktion och en datasamling till `map`.
 
 C:s syntax för funktionspekares typer är fruktansvärd och det är
 därför brukligt att man skapa ett _typalias_ -- dvs. skapar ett
@@ -255,7 +255,7 @@ istället för dess krångliga motsvarighet. Syntaxen för ett
 typalias är så här:
 
     typedef existerande_typ nytt_namn;
-    
+
 Exempel på typalias som inte berör funktionspekare:
 
 ```c
@@ -269,7 +269,7 @@ ett icke-negativt heltal. Suffixet `_t` är en namnkonvention.
 
 Just typaliaset `string_t` är ett alias vi skall undvika eftersom
 det avviker från alla andra C-program och därför blir förvirrande
-för någon som läser din kod även om `string_t` förmodligen har
+för någon som läser din kod, även om `string_t` förmodligen har
 mindre kognitiv belastning än `char *` för en ny C-programmerare.
 
 Låt oss nu använda `typedef`-nyckelordet för att definiera ett
@@ -283,7 +283,7 @@ typedef int(*int_fold_func)(int, int);
 Koden ovan definierar typen `int_fold_func` som en funktion som
 tar som argument två `int`:ar och returnerar en `int`. I Haskell
 skulle typen skrivas `Int -> Int -> Int`. Asterisken `*` framför
-namnet `int_fold_func` ovan är det som gör det hela till en 
+namnet `int_fold_func` ovan är det som gör det hela till en
 pekare.
 
 Nu kan vi använda `int_fold_func` som en datatyp och deklarara
@@ -291,13 +291,13 @@ t.ex. en "[left fold](http://learnyouahaskell.com/higher-order-functions)" (som 
 att räkna ut det från C-koden nedan!
 
 ```c
-/// En funktion som tar en array av heltal, arrayens längd och 
+/// En funktion som tar en array av heltal, arrayens längd och
 /// en pekare till en funktion f av typen Int -> Int -> Int
-int foldl_int_int(int numbers[], int numbers_siz, int_fold_func f) 
+int foldl_int_int(int numbers[], int numbers_siz, int_fold_func f)
 {
   int result = 0;
 
-  // Loopa över arrayen och för varje element e utför result = f(result, e) 
+  // Loopa över arrayen och för varje element e utför result = f(result, e)
   for (int i = 0; i < numbers_siz; ++i)
   {
     result = f(result, numbers[i]);
@@ -323,7 +323,7 @@ detta fall alltså `add`.
 
 **Uppgift:** Skriv om `sum()`-funktionen ovan med hjälp av
 `foldl_int_int()` och `add()`. Du behöver inte ändra i vare sig
-`foldl_int_int()` eller `add()`. 
+`foldl_int_int()` eller `add()`.
 
 
 ## Generell inläsningsrutin
@@ -331,8 +331,8 @@ detta fall alltså `add`.
 Skapa en ny fil med ett lämpligt namn, t.ex. `experiment.c` med
 en tom `main()`-funktion. Skriv all kod för denna uppgift här,
 kompilera ofta och fundera på hur du kan skriva kod i
-`main()`-funktionen som testar/kör den kod som du skriver. 
-Vi kommer att vilja använda kod som du har skrivit tidigare. 
+`main()`-funktionen som testar/kör den kod som du skriver.
+Vi kommer att vilja använda kod som du har skrivit tidigare.
 Välj själv om du vill inkludera `utils.h` och kompilera med
 `gcc experiment.c utils.c` eller om du vill kopiera in all
 kod som behövs i `experiment.c`.
@@ -351,11 +351,11 @@ För att göra detta skall vår nya `ask_question()`-funktion ha tre
 parametrar:
 
 1. Frågan i form av en sträng (`char *`)
-2. En pekare till en funktion som kontrollerar att svaret har rätt format 
+2. En pekare till en funktion som kontrollerar att svaret har rätt format
 3. En pekare till en funktion som konverterar en sträng till något annat format
 
 Typen på kontrollfunktionen skall vara `char * -> bool`, dvs. den tar emot
-en sträng och returnerar sant eller falskt. 
+en sträng och returnerar sant eller falskt.
 
 Typen på konverteringsfunktionen skall vara `char * -> answer_t` --
 vilket introducerar en ny typ som vi ännu inte har sätt, nämligen
@@ -369,11 +369,11 @@ typedef union {
 } answer_t;
 ```
 
-Typen `answer_t` avser ett värde som _antingen_ är en `int` eller
-en `float` eller en sträng (`char *`). Om `val` är en variabel av
+Typen `answer_t` avser ett värde som _antingen_ är en `int` _eller_
+en `float` _eller_ en sträng (`char *`). Om `val` är en variabel av
 typen `answer_t` så kan jag tilldela den ett heltal via `val.i =
 42` och läsa det på motsvarande sätt `... = val.i`, eller en
-sträng via `val.s = ...` och `... = val.s`. Namnen `i`, `f` och `s` 
+sträng via `val.s = ...` och `... = val.s`. Namnen `i`, `f` och `s`
 har jag valt i min definition av `answer_t` och kan bytas ut mot
 andra namn om man så önskar.
 
@@ -382,7 +382,7 @@ andra namn om man så önskar.
 exemplet från `int_fold_func`.
 
 Ett exempel på en kontrollfunktion är den `is_number()` som du
-redan skrivit och som tar in en sträng och returnerar true eller
+redan skrivit (lab1) och som tar in en sträng och returnerar true eller
 false beroende på om strängen kan konverteras till ett tal. En
 kontrollfunktion som kontrollerar att en sträng inte är tom kan se
 ut så här:
@@ -408,14 +408,14 @@ Eller, mer kompakt och bättre:
 /// Hjälpfunktion till ask_question_string
 bool not_empty(char *str)
 {
-  return strlen(str) > 0; 
+  return strlen(str) > 0;
 }
 ```
 
 Ett exempel på en funktion som går att använda som
 konverteringsfunktion är funktionen `atoi()` som vi har använt
 förut. Den fungerar eftersom `atoi()` returnerar ett heltal som så
-att säga är en delmängd av `answer_t`. 
+att säga är en delmängd av `answer_t`.
 
 Dock: Om man försöker skicka in `atoi` som argument till en
 funktion vars motsvarande parameter är `convert_func` kommer
@@ -456,22 +456,21 @@ int ask_question_int(char *question)
 }
 ```
 
-Om du har skrivit en `is_float()` på en tidigare labb kan du använda
-den för att definiera `ask_question_float()` (nu utan den onödiga 
-variabeln `answer` bara för att visa att det också är möjligt). Dock --
-för att göra detta måste vi skapa en funktion som skapar ett `answer_t`
-från en `double`:
+Om du har skrivit en `is_float()` på en tidigare lab kan du
+använda den för att definiera `ask_question_float()`. Dock -- för
+att göra detta måste vi skapa en funktion som skapar ett
+`answer_t` från en `double`:
 
 ```c
 answer_t make_float(char *str)
 {
   answer_t a;      // skapa ett oinitierat answer_t-värde
   a.f = atof(str); // gör det till en float, via atof
-  return a;        // returnera värdet 
+  return a;        // returnera värdet
 }
 ```
 
-Eller, mer kompakt (skapar ett nytt `answer_t`-värde) -- via en syntax 
+Eller, mer kompakt (skapar ett nytt `answer_t`-värde) -- via en syntax
 som vi skall behandla i mer detalj på nästa lab:
 
 ```c
@@ -481,22 +480,25 @@ answer_t make_float(char *str)
 }
 ```
 
+Här skriver vi `ask_question_float()` utan den onödiga variabeln
+`answer` bara för att visa att det också är möjligt (notera `.f`
+på slutet!).
+
 ```c
 int ask_question_float(char *question)
 {
   return ask_question(question, is_float, make_float).f;
 }
 ```
-(notera `.f` på slutet!)
 
-För att göra `ask_question_string()` måste vi tyvärr gå händelserna 
+För att göra `ask_question_string()` måste vi tyvärr gå händelserna
 i förväg en aning och använda en funktion, `strdup()` vars funktion
 är svårt att förklara med den begränsade del av C som vi har tittat
 på hittills. Den inlästa strängen i din `ask_question()` är ju redan
 en sträng, så man kan tycka att man kunde returnera den rakt av, men
-så är inte fallet! 
+så är inte fallet!
 
-Skriv så här längst upp i filen så länge. Senare kommer vi att 
+Skriv så här längst upp i filen så länge. Senare kommer vi att
 skriva en egen version av denna kod:
 ```c
 extern char *strdup(const char *);
@@ -505,9 +507,9 @@ extern char *strdup(const char *);
 Det är nämligen så att din inläsningsbuffert (iallafall om du har
 använt en array, som är det enda vi gått igenom hittills) är knuten
 till den omslutande funktionen -- och efter att funktionen är klar
-kan minnet där texten lästes in komma att återanvändas när som helst. 
+kan minnet där texten lästes in komma att återanvändas när som helst.
 Vi måste därför skapa en _kopia_ av strängen som är fri att skickas
-vart som helst. Detta görs med hjälp av funktionen `strdup()` som 
+vart som helst. Detta görs med hjälp av funktionen `strdup()` som
 finns i `string.h` och som duplicerar en sträng. Exemplet nedan
 skapar en kopia och skriver ut både kopian och originalet:
 
@@ -515,7 +517,7 @@ skapar en kopia och skriver ut både kopian och originalet:
 char *original = "foo bar baz!"
 char *kopia = strdup(original);
 printf("%s\n%s\n", original, kopia);
-``` 
+```
 
 Nu kan vi skriva klar `ask_question_string()` så här:
 
@@ -535,7 +537,7 @@ följande funktioner (åtminstone), i någon ordning:
 
 * Typen `answer_t`
 * Typen `check_func`
-* Typen `convert_func` 
+* Typen `convert_func`
 * Deklarationen `extern char *strdup(const char *);`
 * `char *read_string(char *buf, int buf_siz)`
 * `bool is_number(char *str)`
@@ -546,22 +548,22 @@ följande funktioner (åtminstone), i någon ordning:
 * `int ask_question_int(char *question)`
 * `float ask_question_float(char *question)` (inte obligatorisk)
 
-Själv definitionen av funktionerna (med koden i) skall ligga i
+Själva definitionen av funktionerna (med koden i) skall ligga i
 `utils.c`. Funktionsprototyperna (t.ex. `bool is_number(char
 *str);`), `extern...` samt typedef:arna skall ligga i `utils.h`.
 
 Senare under kursen skall vi diskutera mer ingående hur man skapar
-bibliotek/moduler och placering av funktioner och definitioner,
+bibliotek/moduler, placering av funktioner och definitioner,
 inkapsling och synlighet.
 
 
 ## Grand Finale! Kompilera om Gissa Talet mot nya `utils`
 
 Om du har gjort allt rätt kan du kompilera om ditt Gissa
-Talet-program från föregående labb mot ditt nya `utils`-bibliotek:
+Talet-program från föregående lab mot ditt nya `utils`-bibliotek:
 
     > gcc -Wall utils.c guess.c
-    
+
 Du borde inte få några varningar vid kompilering (såvida du inte
 fick det förut -- vilket du inte borde ha gjort!) och om du kör
 programmet igen skall det fungera precis som förut.
@@ -581,19 +583,19 @@ definitionen av `isspace()` i `ctype.h`. (Använd gärna `man
 isspace` för att ta reda på mer.)
 
 Du skall skriva funktionen `trim()` som tar in en sträng och
-helt enkelt tvättar bort allt "skräp". 
+helt enkelt tvättar bort allt "skräp".
 
     trim("  hej  ")   => "hej"
     trim("  h ej  ")  => "h ej"
     trim(" hej  \n")  => "hej"
-    
+
 Funktionens signatur:
 
 ```c
 char *trim(char *str);
 ```
 
-Förslag till implementation: 
+Förslag till implementation:
 
 1. Ta reda på det första tecknet från vänster, _S_, som inte är skräp (`!isspace()`)
 2. Ta reda på det första tecknet från höger, _E_, som inte är skräp (`!isspace()`)
@@ -601,9 +603,9 @@ Förslag till implementation:
 4. Skriv in ett `'\0'`-tecken efter det sista flyttade tecknet
 5. Returnera `str`
 
-Lägg till `trim()` i `utils`-biblioteket! 
+Lägg till `trim()` i `utils`-biblioteket!
 
-Du kan testa att ditt program är korrekt med hjälp av följande 
+Du kan testa att ditt program är korrekt med hjälp av följande
 testprogram:
 
 ```c
@@ -615,9 +617,9 @@ int main(void)
   char str2[] = "  h ej  ";
   char str3[] = "  hej\t ";
   char str4[] = "  hej\t \n";
-  
+
   char *tests[] = { str1, str2, str3, str4 };
-  
+
   for (int i = 0; i < 4; ++i)
     {
       print("Utan trim: '");
@@ -634,14 +636,14 @@ Sä här skall en körning av programmet se ut:
 
     Utan trim: '  hej  '
     Med trim:  'hej'
-    
+
     Utan trim: '  h ej  '
     Med trim:  'h ej'
-    
+
     Utan trim: '  hej	 '
     Med trim:  'hej'
-    
-    Utan trim: '  hej	 
+
+    Utan trim: '  hej
     '
     Med trim:  'hej'
 
@@ -649,7 +651,13 @@ Sä här skall en körning av programmet se ut:
 
 Alternativ implementation:
 
-1. Gå genom strängen från vänster till höger, och så länge enbart skräptecken hittats, gör ingeting
-2. Från det att första skräptecknet hittats, kopiera varje tecken som passerats till början av strängen (första gången till position 0, andra till position 1, osv.) -- kopiera även skräptecken. Första gången ett skräptecken kopieras efter att ett eller flera icke-skräptecken har kopierats, kom ihåg platen _P_ för det skräptecknet (vi är bara intresserade av det sista -- högraste -- _P_:t)
+1. Gå genom strängen från vänster till höger, och så länge enbart
+   skräptecken hittats, gör ingeting
+2. Från det att första skräptecknet hittats, kopiera varje tecken
+   som passerats till början av strängen (första gången till
+   position 0, andra till position 1, osv.) -- kopiera även
+   skräptecken. Första gången ett skräptecken kopieras efter att
+   ett eller flera icke-skräptecken har kopierats, kom ihåg platen
+   _P_ för det skräptecknet (vi är bara intresserade av det sista
+   -- högraste -- _P_:t)
 3. När du når slutet på strängen, skriv `\0` i _P_
-
