@@ -27,6 +27,22 @@ Strukturera programmet så här:
 **Tips:** i C är operatorn `%` modulo, dvs. `10 % 5 = 0` och `10 % 3 = 1`.
 
 
+## Debugging
+
+Ingen människa skriver felfria program direkt. Ibland kan ett
+program kompilera men ändå göra fel eller krascha, och det är inte
+alltid lätt att hitta vad som orsakar en bugg. Ett verktyg som kan
+användas för att hitta buggar i ett körande program kallas för en
+"debugger" (på stolpig svenska kallas de ibland för "avlusare").
+Program skrivna i C kan "debuggas" med programmet `gdb` (eller
+`lldb` om du kör på OS X).
+
+I kursrepots [extramaterial](../extramaterial) finns en en kort
+screencast om `gdb` som du bör se vid tillfälle, samt en lathund
+som går igenom hur `gdb` fungerar. Om du stöter på en bugg och
+vill prova att använda `gdb` redan på den här labben kan du be en
+assistent om hjälp.
+
 ## I/O
 
 I/O -- input/output är en viktig del av många program, och ibland
