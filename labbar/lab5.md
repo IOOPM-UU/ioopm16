@@ -1,4 +1,4 @@
-# Lab 5 & 6: mer I/O och utökning av `db.c`
+# Lab 5: mer I/O och utökning av `db.c`
 
 Hittills har vi talat om att läsa och skriva till och från
 terminalen. Lyckligtvis är en grundläggande abstraktion kring I/O
