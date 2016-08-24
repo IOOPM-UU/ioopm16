@@ -54,12 +54,12 @@ int main(void)
 }
 ```
 
-Om det råder minsta tvekan -- kör programmet! 
+Om det råder minsta tvekan -- kör programmet!
 
 Programmet exemplifierar *värdesemantik*, dvs. att vid anrop
 överförs argumentens värde genom **kopiering**. `a` och `b` i
 `swap()` har samma värde som `x` respektive `y` initialt, men
-förändringar av `a` och `b` påverkar inte `x` och `y`. 
+förändringar av `a` och `b` påverkar inte `x` och `y`.
 
 
 ## Skriv om `swap()` med pekarsemantik
@@ -70,7 +70,7 @@ något som i programmet ovan inte stämmer. Nu skall vi skriva om
 
     int  a  // a är en variabel som innehåller ett heltal
     int *b  // b är en variabel som innehåller en adress till en plats i minnet där det finns ett heltal
-    
+
 Variabeln `b` ovan innehåller alltså en adress. För att komma åt
 det heltal som ligger på den adressen skriver vi `*b`. Vi säger
 att vi **avrefererar** `b`. Vi har tidigare sett **adresstagningsoperatorn**
@@ -93,7 +93,7 @@ byter plats på värdena som finns lagrade på dessa två platser.
 Målet är att skriva om Program 1 ovan så att `42, 7` skrivs ut när
 det körs.
 
-Ledning: 
+Ledning:
 
 1. Signaturen för `swap()` skall vara`void swap(int *a, int *b)`
 2. Du kommer att använda avrefereringsoperatorn i implementationen av `swap()`
@@ -135,7 +135,7 @@ element 26 i en array med bara 20 element. Det är helt enkelt
 något som programmeraren måste sköta själv!
 
 Många program som manipulerar arrayer kan skrivas om på ett
-elegant sätt med pekararitmetik. Här är t.ex. funktionen
+kortare sätt med pekararitmetik. Här är t.ex. funktionen
 `string_copy()` som kopierar en sträng till en annan (kopierar
 alla tecken från en array av tecken till en annan):
 
@@ -151,7 +151,7 @@ En bättre (mer lättläst) version:
 ```c
 void string_copy(char *source, char *dest)
 {
-  while (*source) 
+  while (*source)
   {
     *dest = *source;
     ++dest;
@@ -165,7 +165,7 @@ Eller med en `for`-loop (där iterationsvillkoret har blivit tydligare):
 ```c
 void string_copy(char *source, char *dest)
 {
-  for (; *source != '\0'; ++dest, ++source) 
+  for (; *source != '\0'; ++dest, ++source)
   {
     *dest = *source;
   }
@@ -202,7 +202,7 @@ void print(char *str)
 
 Använd `str` som en pekare och använd inte array-indexering
 (alltså inte `str[12]`).
-    
+
 **Ledning:** Vi kan implementera `trim()`-funktionen från lab 3 på
 motsvarande sätt:
 
@@ -251,10 +251,17 @@ som ett sammanhållet värde, istället för att skicka en massa "lösa
 variabler". Ponera t.ex. att du skulle vilja skapa en rektangel
 från två punkter -- fyra koordinater. Om du inte grupperade dem
 som punkter måste du komma på något system för att veta vilken
-x-koordinat som hör ihop med vilken y-koordinate. 
+x-koordinat som hör ihop med vilken y-koordinat.
 
-Struktar har värdesemantik -- dvs. överförs med kopiering. Så här
-kan man skapa (och skriva ut) en strukt:
+Den närmsta motsvarigheten till struktar i Haskell är definitionen
+av nya datatyper:
+
+```haskell
+data Point = Point {x :: Int, y :: Int}
+```
+
+Struktar i C har värdesemantik -- dvs. överförs med kopiering. Så
+här kan man skapa (och skriva ut) en strukt:
 
 ```c
 struct point p;
@@ -275,14 +282,14 @@ struct point p = { .x = 10, .y = -42};
 printf("point(x=%d,y=%d)\n", p.x, p.y);
 ```
 
-Ofta använder man en `typedef` för att definiera ett typalias 
+Ofta använder man en `typedef` för att definiera ett typalias
 som inte innehåller det extra `struct`-nyckelordet:
 
 ```c
 typedef struct point point_t;
 ```
 
-Nu är `struct point` och `point_t` synomyma och vi kan skriva 
+Nu är `struct point` och `point_t` synomyma och vi kan skriva
 vårt program så här:
 
 ```c
@@ -339,16 +346,16 @@ void translate(point_t *p1, point_t *p2)
 
 Observera att `.`-notationen för att komma åt fält i en strukt
 byts ut mot pilar `->` när man gör åtkomst till fält i en **pekare
-till en strukt**. 
+till en strukt**.
 
 En anledning till pilnotationen är för att förtydliga att vi inte
 vet så mycket om värdet vars fält vi läser och skriver. I den
-sista implementationen av translate är det t.ex. möjligt att
+sista implementationen av `translate()` är det t.ex. möjligt att
 anropa translate med samma argument två gånger:
 
 ```c
 point_t p = { .x = 10, .y = 7 };
-translate(&p, &p); 
+translate(&p, &p);
 ```
 
 (observera `&p` eftersom funktionen vill ha adressen till där
@@ -357,14 +364,14 @@ punkten finns, inte en kopia av själva punkten).
 Om translate anropas med samma punkt som första och andra argument
 kommer även det andra argumentet att förändras. Det är förmodligen
 lite överraskande (varför skulle den det?) och detta illustrerar
-att pekare är kraftfulla och knepiga att programmera med. 
+att pekare är kraftfulla men också knepiga att programmera med.
 
 
 ## Punkter, rektanglar och cirklar
 
 Börja med att skapa en ny fil `geo.c` med en tom `main()`-metod etc.
-Kopiera dit struktdefinitionen för punkt, samt typaliaset och 
-den sista `translate()`-funktionen. 
+Kopiera dit struktdefinitionen för punkt, samt typaliaset och
+den sista `translate()`-funktionen.
 
 1. Skriv en funktion `print_point()` som tar en `point_t *`
    (pekare alltså!) som argument och skriver ut den på terminalen
@@ -374,12 +381,12 @@ den sista `translate()`-funktionen.
 2. Skriv funktionen `make_point()` som tar in två heltal som x-
    och y-koordinater och returnerar en `point_t`. Testa den med
    hjälv av `print_point()`.
-   
-3. Definiera en strukt för rektanglar. En `struct rectangle` 
+
+3. Definiera en strukt för rektanglar. En `struct rectangle`
    representeras som två punkter, dvs. dess övre vänstra hörn och
-   dess nedre högra hörn. 
-   
-4. Definiera ett typalias `rectangle_t` till `struct rectangle` 
+   dess nedre högra hörn.
+
+4. Definiera ett typalias `rectangle_t` till `struct rectangle`
 
 5. Skriv funktionen `print_rect()` som tar in en pekare till
    en rektangel och skriver ut den på terminalen på formatet
@@ -387,47 +394,48 @@ den sista `translate()`-funktionen.
    `print_point()` för att implementera funktionen. Ändra sedan
    `print_point()` till att skriva ut `point(x,y)` istället och
    kompilera om programmet och se att förändringen också får
-   genomslagskraft i definitionen av `print_rect()`. 
-   
+   genomslagskraft i definitionen av `print_rect()`.
+
 6. Skriv funktionen `make_rect()` som tar in fyra heltal
    och utifrån dem skapar en rektangel. Testa den med hjälp av
    `print_rect()`.
- 
+
 7. Skriv funktionen `area_rect()` som tar in en pekare till en
    rektangel och räknar ut dess area (dvs. basen * höjden).
    Testa den på några enkla exempel vars areor du enkelt kan
-   räkna ut själv. 
-   
+   räkna ut själv.
+
 8. Skriv funktionen `intersects_rect()` som tar in två pekare till
    rektanglar och returnerar `true` om det finns minst en punkt i
-   planet som finns i båda rektanglarna, annars `false`.
-   Testa den med både negativa och positiva exempel. 
-   
+   planet som finns i båda rektanglarna, annars `false`. Testa den
+   med både negativa och positiva exempel, alltså både med
+   rektanglar som överlappar och rektanglar som inte gör det.
+
 9. Skriv funktionen `intersection_rect()` som tar in två pekare
    till rektanglar _R1_ och _R2_ och returnerar en ny rektangel
    (med värdesemantik) som är den minsta rektangel som innefattar
-   alla punkter som som finns i både _R1_ och _R2_. Testa den 
-   med de positiva exemplen från föregående fråga. 
- 
+   alla punkter som som finns i både _R1_ och _R2_. Testa den
+   med de positiva exemplen från föregående fråga.
+
 0. **Frivillig** Definiera en strukt för cirklar med en `point_t`
-   som mittpunkt och ett heltal som radie. 
+   som mittpunkt och ett heltal som radie.
 
 0. **Frivillig** Definiera ett typalias `circle_t` för cirklar.
 
 0. **Frivillig** Definiera en `print_circle()` som skriver ut
-   `circle(center=point(x,y), radius=r)`. 
+   `circle(center=point(x,y), radius=r)`.
 
-0. **Frivillig** Definiera en `make_circle()`. 
+0. **Frivillig** Definiera en `make_circle()`.
 
 0. **Frivillig** Definiera en `area_circle()` som räknar ut arean
    på en cirkel som `pi * radien^2`. Du kan använda lämpliga
-   funktioner och konstanter i `math.h` för att lösa uppgiften. 
-   Returtypen på `area_circle()` skall vara ett flyttal. 
+   funktioner och konstanter i `math.h` för att lösa uppgiften.
+   Returtypen på `area_circle()` skall vara ett flyttal.
 
 
 ## Databas
 
-Detta program skall skrivas i filen `db.c`. **Du kommer att kunna återanvända 
+Detta program skall skrivas i filen `db.c`. **Du kommer att kunna återanvända
 stora delar av detta program i inlämningsuppgift 1 på kursen!**
 
 En vara har ett namn, en beskrivning, ett pris och en lagerhylla
@@ -435,12 +443,16 @@ som avser platsen där den är lagrad.
 
 * Namn och beskrivning skall vara strängar (`char *`)
 * Pris skall vara i ören och är därför ett heltal (`int`)
-* Lagerhylla skall vara en bokstav åtföljd av en eller flera siffror t.ex. A25 men inte A 25* eller 25A (en möjlig datatyp för detta är t.ex. `char *` -- det tillåter lagerhyllor som inte följer formatet, så kontrollen att endast valida lagerhyllor finns i varor måste ske någon annanstans!)
+* Lagerhylla skall vara en bokstav åtföljd av en eller flera
+  siffror t.ex. A25 men inte A 25* eller 25A (en möjlig datatyp
+  för detta är t.ex. `char *` -- det tillåter lagerhyllor som inte
+  följer formatet, så kontrollen att endast valida lagerhyllor
+  finns i varor måste ske någon annanstans!)
 
 
 ### Deluppgift 1: deklarationer
 
-Deklarera en strukt `item` (för en vara) enligt ovan och ett typalias `item_t`. 
+Deklarera en strukt `item` (för en vara) enligt ovan och ett typalias `item_t`.
 
 ### Deluppgift 2: skriva ut varor
 
@@ -454,7 +466,7 @@ och skriver ut en vara på följande format:
 
 **Tips:** decimalkommat i `Price` går lätt att göra med
 heltalsdivision, modulo och `printf` då vi vet att priset alltid är
-i ören. T.ex. `price / 100` blir alltid jämna kronor och `.`:en 
+i ören. T.ex. `price / 100` blir alltid jämna kronor och `.`:en
 kan vara en del av det som skrivs ut.
 
 
@@ -471,19 +483,19 @@ Skriv en funktion `input_item()` som använder hjälpfunktionerna
 `ask_question_string()` och `ask_question_int()` för att läsa in namn,
 beskrivning och pris på en vara. Definiera ytterligare en
 hjälpfunktion `ask_question_shelf()` för att läsa in en lagerhylla
-och verfiera att formatet är korrekt enligt specifikationen ovan. 
+och verfiera att formatet är korrekt enligt specifikationen ovan.
 
 Du kommer att behöva en ny kontrollfunktion för lagerhyllor som är
 ganska lik `is_number()` (men enbart första teckenet skall vara en
-siffra). Som konverteringsfunktion fungerar `strdup()` eftersom 
-representationen för lagerhyllan är en sträng. 
+siffra). Som konverteringsfunktion fungerar `strdup()` eftersom
+representationen för lagerhyllan är en sträng.
 
 
 ### Deluppgift 5: kaosmagi
 
 Skriv en funktion `magick()` som genererar ett slumpnamn för
 varor med hjälp av kaosmagi. För denna uppgift definieras kaosmagi
-som tre slumpmässiga val från tre sträng-arrayer av samma längd som 
+som tre slumpmässiga val från tre sträng-arrayer av samma längd som
 skickas in till `magick()` och kombineras till ett namn.
 
 Exempel:
@@ -491,11 +503,11 @@ Exempel:
     char *array1[] = { "Laser",        "Polka",    "Extra" };
     char *array2[] = { "förnicklad",   "smakande", "ordinär" };
     char *array3[] = { "skruvdragare", "kola",     "uppgift" };
-    
+
     char *str = magick(array1, array2, array3, 2); // 2 = längden på arrayerna
-    
+
     puts(str); // Polka-ordinär skruvdragare
-    
+
 Algoritmen fungerar som följer:
 
 1. Skapa en `char buf[255]` att hålla det nya ordet i
@@ -509,15 +521,15 @@ Algoritmen fungerar som följer:
 
 Vi kommer att återkomma till den "magiska" `strdup()`-funktionen
 senare i kursen: enkelt förklarat tillhör `buf`-bufferten
-`create_name()`- funktionen och för att få skicka tillbaka
-strängen till den anropande funktionen måste vi duplicera den.
+`magick()`- funktionen och för att få skicka tillbaka strängen
+till den anropande funktionen måste vi duplicera den.
 
 Du kan använda följande `main()`-funktion som läser in ett tal
 från kommandoraden, anropar `input_item()` lika många gånger, och
 sedan använder `magick()` för att skapa en databas med 16 varor
-som sedan skrivs ut på skärmen. Du måste lägga till arrayerna 
+som sedan skrivs ut på skärmen. Du måste lägga till arrayerna
 med ord själv, och deras längd -- sök efter `///` för att hitta
-de platser som du måste ändra nedan. 
+de platser som du måste ändra nedan.
 
 ```c
 int main(int argc, char *argv[])
@@ -526,7 +538,7 @@ int main(int argc, char *argv[])
   char *array2[] = { ... }; /// Lägg till!
   char *array3[] = { ... }; /// Lägg till!
 
-  if (argc < 2) 
+  if (argc < 2)
   {
     printf("Usage: %s number\n", argv[0]);
   }
@@ -534,9 +546,9 @@ int main(int argc, char *argv[])
   {
     item_t db[16]; // Array med plats för 16 varor
     db_siz = 0;    // Antalet varor i arrayen just nu
-    
+
     int items = atoi(argv[1]); // Antalet varor som skall skapas
-    
+
     if (items > 0 && items <= 16)
     {
       for (int i = 0; i < items; ++i)
@@ -550,20 +562,20 @@ int main(int argc, char *argv[])
     else
     {
       puts("Sorry, must have [1-16] items in database.");
-      return 1; // Avslutar programmet! 
+      return 1; // Avslutar programmet!
     }
-    
+
     for (int i = db_siz; i < 16; ++i)
       {
         char *name = magick(array1, array2, array3, ...); /// Lägg till storlek
         char *desc = magick(array1, array2, array3, ...); /// Lägg till storlek
         int price = random() % 200000;
-        char shelf[] = { random() % ('Z'-'A') + 'A', 
-                         random() % 10 + '0', 
-                         random() % 10 + '0', 
+        char shelf[] = { random() % ('Z'-'A') + 'A',
+                         random() % 10 + '0',
+                         random() % 10 + '0',
                          '\0' };
         item_t item = make_item(name, desc, price, shelf);
-        
+
         db[db_siz] = item;
         ++db_siz;
       }
@@ -589,7 +601,7 @@ arrayen + 1:
     2. YYY
     ...
     16. ZZZ
-    
+
 Ersätt utskriften av innehållet i databasen med ett anrop till
 `list_db()` istället. Använd `db_siz` som storleken på databasen
 (`no_items` i `list_db()`).
@@ -599,21 +611,23 @@ Observera att databasen är en variabel som är deklarerad i `main()`.
 
 ### Editera databasen
 
-Skriv en funktion `edit_db()` som: 
+Skriv en funktion `edit_db()` som:
 
 1. Frågar efter vilken vara som skall editeras (ett heltal som
    motsvarar heltalen i listningen ovan) med hjälp av `ask_question_int()`
 2. Skriver ut varan på skärmen med hjälp av `print_item()`
-3. Låter användaren ersätta varan med en annan som läses in med `input_item()` 
+3. Låter användaren ersätta varan med en annan som läses in med `input_item()`
 
 Fundera över:
 
-1. Vad behöver `edit_db()` ta som inparametrar? 
-2. Hur sparar vi förändringarna som användaren matar in i databasen? 
-3. Hur skall programmet bete sig om användaren matar in en siffra för vilken det inte finns en vara? (t.ex. -27 eller 42 när databasen bara har 16 varor)
+1. Vad behöver `edit_db()` ta som inparametrar?
+2. Hur sparar vi förändringarna som användaren matar in i databasen?
+3. Hur skall programmet bete sig om användaren matar in en siffra
+   för vilken det inte finns en vara? (t.ex. -27 eller 42 när
+   databasen bara har 16 varor)
 
 **Frivilliga utökningar:**
 
-1. Låt användaren välja vilken del av varan som skall ändras, t.ex. bara priset 
-2. Bygg in stöd för att lägga in helt nya varor om det finns plats (dvs. `db_siz` är mindre än databasens faktiska storlek)
-
+1. Låt användaren välja vilken del av varan som skall ändras, t.ex. bara priset
+2. Bygg in stöd för att lägga in helt nya varor om det finns plats
+   (dvs. `db_siz` är mindre än databasens faktiska storlek)
