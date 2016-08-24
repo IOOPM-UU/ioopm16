@@ -13,7 +13,7 @@ implementera leken "Fizz Buzz" där man sitter i en ring och räknar
 uppåt från 1. Den som börjar börjar säger 1, och nästa person
 säger 2, etc. -- men alla tal som är delbara med 3 ersätts med
 "Fizz", alla tal som är delbara med 5 ersätts med "Buzz" och alla
-tal som är delbara med både 3 och 5 med "Fizz Buzz". 
+tal som är delbara med både 3 och 5 med "Fizz Buzz".
 
 Skriv ett program som räknar från 1 till ett på kommandoraden
 angivet tal på detta sätt:
@@ -22,11 +22,11 @@ angivet tal på detta sätt:
     > ./a.out 16
     1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, Fizz Buzz, 16
     > _
-    
+
 Strukturera programmet så här:
 
 1. En `main()`-funktion som läser in ett tal _T_ som ett kommandoradsargument (se föregående lab)
-2. En loop i main-funktionen som räknar från 1 till _T_
+2. En loop i `main()`-funktionen som räknar från 1 till _T_
 3. En funktion `void print_number(int num)` som anropas för varje _T_ och skriver _T_, Fizz, Buzz eller Fizz Buzz
 4. Fundera på hur du skall göra för att inte ha något sista avslutande `,`-tecken
 
@@ -38,7 +38,7 @@ Strukturera programmet så här:
 I/O -- input/output är en viktig del av många program, och ibland
 knepigt beroende på hur långt ned i mjukvarustacken man befinner
 sig. Ju närmare hårdvaran -- desto lägre abstraktionsnivå erbjuds,
-vilket tvingar oss att tänka på fler detaljer. 
+vilket tvingar oss att tänka på fler detaljer.
 
 Vi skall börja med att implementera en generell rutin för att
 ställa en fråga och läsa in ett svar i form av ett heltal. Vi
@@ -51,7 +51,7 @@ med den idag. Den skall inkludera `stdio.h`, som är C:s
 standardbibliotek för I/O-funktioner.
 
 
-### Del 1: `ask_question_int()` 
+### Del 1: `ask_question_int()`
 
 Tillägg i `utils.c`.
 
@@ -61,7 +61,7 @@ hur man kan deklarera en heltalsvariabel `result` och sedan
 läsa in ett heltal från terminalen och spara i variabeln:
 
 ```c
-int result; 
+int result;
 scanf("%d", &result);
 ```
 
@@ -77,10 +77,10 @@ minnet där resultaten av en inläsning skall läggas. Om vi t.ex.
 vill läsa in tre tal:
 
 ```c
-int one;
-int two;
-int three;
-scanf("%d %d %d", &one, &two, &three);
+int first;
+int second;
+int third;
+scanf("%d %d %d", &first, &second, &third);
 ```
 
 Funktionen `scanf()` har väldigt många olika möjligheter och
@@ -112,7 +112,7 @@ flagga senare under kursen.
 ```c
 int ask_question_int(char *question)
 {
-  printf("%s\n", question); 
+  printf("%s\n", question);
   int result = -1; // godtyckligt valt nummer
   scanf("%d", &result);
   return result;
@@ -122,8 +122,8 @@ int ask_question_int(char *question)
 För enkelhets skull lägger vi till en `main()`-funktion som kan
 testa vårt program. Senare kommer vi att ta bort den. Syftet med
 `utils.c` är nämligen att vi skall skapa några grundläggande
-funktioner i ett biliotek som kommer att vara användbart för
-inlämningsuppgifterna senare. 
+funktioner i ett bibliotek som kommer att vara användbart för
+inlämningsuppgifterna senare.
 
 ```c
 int main(void)
@@ -135,7 +135,7 @@ int main(void)
 
   tal = ask_question_int("Andra talet:");
   printf("Du skrev '%d'\n", tal);
-  
+
   return 0;
 }
 ```
@@ -151,32 +151,32 @@ vad resultatet blir:
 Inläsning från tangentbordet i C fungerar genom en
 _tangentbordsbuffert_ som du kan tänka på som en sträng i datorns
 minne. `scanf()`-rutinen ovan förväntar sig ett heltal (styrkoden
-`%d`) vilket betyder att inläsningen av `1a` slutar vid `1` och
+`%d`) vilket betyder att inläsningen av `1a` slutar vid `1`, så att
 `a\n` lämnas kvar i minnet (observera radbrytningstecknet `\n`).
-Vid nästa inläsning finns `a\n` kvar i bufferten och eftersom 
-`scanf()` läser rad för rad kommer scanf inte att kunna läsa in 
-något tal. 
+Vid nästa inläsning finns `a\n` kvar i bufferten och eftersom
+`scanf()` läser rad för rad kommer scanf inte att kunna läsa in
+något tal.
 
-Vår `ask_question_int()` behöver bli lite smartare: vi måste 
-kontrollera vad `scanf()` lyckas med. 
+Vår `ask_question_int()` behöver bli lite smartare: vi måste
+kontrollera vad `scanf()` lyckas med.
 
 Returvärdet från `scanf()` är så många inläsningar som `scanf()`
 lyckades med. I vårt fall försöker vi bara göra en (en styrkod
 `%d`) så om `scanf()` returnerar `1` vet vi att inläsningen är
-lyckad. 
+lyckad.
 
-Intuitivt kanske man kan tycka att följande funktion borde lösa 
+Intuitivt kanske man kan tycka att följande funktion borde lösa
 problemet:
 
 ```c
 int ask_question_int(char *question)
 {
-  
+
   int result = -1;
 
   do
   {
-    printf("%s\n", question); 
+    printf("%s\n", question);
   }
   while (scanf("%d", &result) != 1);
 
@@ -192,21 +192,21 @@ Det gör den inte, och problemet ligger i att en misslyckad
 Det finns ingen bästa lösning på detta problem, men en möjlig
 lösning som är både vettig och enkel är att kasta bort resten av
 den inlästa raden. Dvs. om du skriver in `1a...`, läses `1` in,
-och `a...` kastas bort oavsett vad som är i `...`. 
+och `a...` kastas bort oavsett vad som är i `...`.
 
 Vi kan tömma tangentbordets buffer så här:
 
 ```c
-int c; 
-do 
+int c;
+do
 {
   c = getchar();
-} 
+}
 while (c != '\n');
 ```
 
 Denna loop tar tecken från terminalen, ett efter ett, tills den
-läser ett `\n`. På så vis töms tangentbordets buffert. Vi kan nu 
+läser ett `\n`. På så vis töms tangentbordets buffert. Vi kan nu
 skriva en fungerande `ask_question_int()`:
 
 ```c
@@ -235,12 +235,17 @@ int ask_question_int(char *question)
 **Not**
 
 Ändra gärna `while (c != '\n');` till `while (c != '\n' && c != EOF);`.
-Den andra villkoret betyder att `c` inte skall vara specialtecknet 
+Den andra villkoret betyder att `c` inte skall vara specialtecknet
 som avser att en fil är slut -- End Of File. Det hanterar inmatning
-som avslutas utan att det kommer en ny rad sist. 
+som avslutas utan att det kommer en ny rad sist.
+
+**Tips** Funktionen blir enklare att läsa och förstå om du flyttar
+ut den inre loopen (den som tömmer tangentbordets buffert) till en
+egen funktion med ett bra namn, till exempel
+`clear_input_buffer()`.
 
 
-### Del 2: Inläsning av en sträng 
+### Del 2: Inläsning av en sträng
 
 Tillägg i `utils.c`.
 
@@ -253,11 +258,11 @@ storlek. Om vi skall använda `scanf()` för att läsa in en sträng
 måste vi skicka med adressen till en plats i minnet där resultatet
 skall sparas, analogt med inläsning av heltal. Ett klassiskt
 säkerhetshål i C är s.k. "buffer exploits" som i stort går ut på
-att mata in för för långa strängar i ett program så att de inte
+att mata in för långa strängar i ett program så att de inte
 ryms i buffrarna och spiller över in i programmets övriga minne.
 Ta därför alltid för vana när du läser in data i ett C-program att
 enbart använda funktioner som låter dig ange hur många tecken som
-ryms på den plats där det inlästa datat skall sparas! 
+ryms på den plats där det inlästa datat skall sparas!
 
 Här är en **regelvidrig** (och dessutom **felaktig** -- testa
 själv) inläsningsfunktion som absolut aldrig får användas. Här
@@ -302,7 +307,7 @@ Att läsa in en sträng är väldigt likt att tömma
 tangentbordsbufferten som vi gjorde ovan, med den lilla skillnaden
 att vi sparar det vi läste in i `buf`. Vidare måste vi:
 
-1. Lägga till en räknare för hur många tecken vi läst in 
+1. Lägga till en räknare för hur många tecken vi läst in
 2. Se till att räknarens värde inte överstiger `buf_siz-1`
 3. Se till att strängen vi läser in blir korrekt nullterminerad
 
@@ -311,21 +316,21 @@ tecken som slutar med tecknet `'\0'`. Eftersom detta tecken också
 tar upp en plats i strängen får vi inte läsa in `buf_siz` tecken
 utan högst `buf_siz-1` tecken. Genom att skriva `'\0'` sist i
 strängen har vi markerat dess slut. Alltså: om vi har läst in 5
-tecken i en buffert `buf` skall vi sätta `buf[5] = '\0';` dvs. 
+tecken i en buffert `buf` skall vi sätta `buf[5] = '\0';` dvs.
 skriva `'\0'` på den sjätte platsen i `buf`. Om `buf` endast
-hade längden `5` hade vi fått sluta läsa in efter 4 tecken så 
-att vi kunde göra `buf[4] = '\0'`. 
+hade längden `5` hade vi fått sluta läsa in efter 4 tecken så
+att vi kunde göra `buf[4] = '\0'`.
 
 Om vi lyckas läsa hela vägen till det sista `'\n'`-tecknet behöver
 vi inte tömma tangentbordets buffer. Om vår inläsningsbuffer tar
 slut först, dock, så skall vi tömma tangentbordets buffer på samma
-sätt om vi gjorde i `ask_question_int()`. 
+sätt om vi gjorde i `ask_question_int()`.
 
 Här är en enkel `main()`-funktion som du kan använda för att
 testa ditt program:
 
 ```c
-int main(void) 
+int main(void)
 {
     int buf_siz = 255;
     int read = 0;
@@ -354,7 +359,7 @@ att första varje anrop till `read_string()` använder samma
 buffert, dvs. den andra inläsningen skriver över innehållet som
 var inläst av den första inläsningen. Detta är i sig inget
 problem, men kan kanske hjälpa dig att förstå varför du kan få
-rester av gammal input i din sträng om du gör fel. 
+rester av gammal input i din sträng om du gör fel.
 
 
 ### Del 3: `ask_question_string()`
@@ -365,7 +370,7 @@ Nu när vi har en `read_string()`-funktion är det enkelt att
 implementera en `ask_question_string()`. Gör det, och använd
 returvärdet från `read_string()` för att fånga tomma strängen
 (vars längd är 0) och i så fall upprepa frågan på samma sätt som
-`ask_question_int()`. 
+`ask_question_int()`.
 
 Funktionen `ask_question_string()` går i stort sett att extrahera
 från det första försöket att implementera `ask_question_string()`
@@ -376,14 +381,14 @@ void ask_question_string(char *question, char *buf, int buf_siz)
 ```
 
 Senare under kursen skall vi se hur vi kan ändra så att signaturen
-för funktionen blir 
+för funktionen blir
 
 ```c
 char *ask_question_string(char *question)
 ```
 
 genom att skapa ett dynamiskt allokerat minnesutrymme i vilket vi
-kan spara den inlästa strängen. 
+kan spara den inlästa strängen.
 
 
 ## Gör om `utils.c` till ett riktigt bibliotek
@@ -403,8 +408,8 @@ char *ask_question_string(char *question, char *buf, int buf_siz);
 Som första rader i `utils.h` skriv
 
 ```c
-#ifndef __UTILS_C__
-#define __UTILS_C__
+#ifndef __UTILS_H__
+#define __UTILS_H__
 ```
 
 och som sista rader skriv
@@ -417,11 +422,11 @@ Vi återkommer till dessa magiska instruktioner senare. Om du är
 nyfiken -- kolla i kurslitteraturen, sök på nätet, eller fråga en
 assistent!
 
-Lägg till `#include "utils.h"` i `utils.c` -- notera `"` istället för `<`. 
+Lägg till `#include "utils.h"` i `utils.c` -- notera `"` istället för `<`.
 
 Passa också på att ta bort `main()`-funktione ur `utils.c`. Nu har vi
 ett "riktigt bibliotek" som kan inkluderas av program som behöver komma
-åt hjälpfunktionerna. 
+åt hjälpfunktionerna.
 
 
 ## Applikation: Gissa talet
@@ -446,7 +451,7 @@ två `ask_`-funktioner. Interaktion med programmet skall se ut så här:
     Bingo!
     Det tog Tobias 12 gissningar att komma fram till 42
     > _
-    
+
 Om man tar mer än 15 gissningar på sig skall programmet skriva ut:
 
     ...
@@ -458,8 +463,8 @@ Programmet skall alltså:
 1. Slumpa fram ett tal _T_ (med hjälp av funktionen `random()` i `stdlib.h`)
 2. Fråga efter användarens namn _N_
 3. Skriva ut "Du _N_, jag tänker på ett tal kan du gissa vilket?"
-4. I en loop, läsa in tal från användaren och skriva ut "För litet!" 
-   eller "För stort!" eller "Bingo!" 
+4. I en loop, läsa in tal från användaren och skriva ut "För litet!"
+   eller "För stort!" eller "Bingo!"
 5. Vid bingo, skriv ut "Det tog _N_ _G_ gissningar att komma fram till _T_"
 6. Om _G_ når 15, skriva ut "Nu har du slut på gissningar! Jag tänkte på _T_!"
 
@@ -472,7 +477,7 @@ random() % 1024  // slumptal mellan 0 och 1023
 ```
 
 Programmet använder naturligtvis funktionerna från `utils.c`, utefter
-den beskrivning som finns i `utils.h`. Importera dem 
+den beskrivning som finns i `utils.h`. Importera dem
 i `guess.c` så här:
 
 ```c
@@ -482,19 +487,19 @@ i `guess.c` så här:
 Om när du kompilerar -- ange båda källkodsfilerna:
 
     > gcc -Wall utils.c guess.c
-    
+
 Om du har glömt att ta bort `main()`-funktionen från `utils.c`
 kommer detta inte att fungera eftersom det då finns två
-`main()`-funktioner, vilket inte tvetydligt och därför inte är
+`main()`-funktioner, vilket är tvetydigt och därför inte är
 tillåtet!
-    
 
-# Extrauppgifter 
+
+# Extrauppgifter
 
 För dig som är tidigt färdig eller känner att du vill arbeta mer
-med materialet. 
+med materialet.
 
-## Implementera om `ask_question_string()`
+## Implementera om `ask_question_int()`
 
 Implementera om `ask_question_int()` i termer av `read_string()`
 och den `is_number()` som du implementerade på föregående lab.
@@ -512,8 +517,8 @@ utility-bibliotek!
 Implementera funktione `ask_question_float()` i termer av
 `read_string()` och en `is_float()` som du själv måste skriva. Du
 kan utgå från `is_number()` men också tillåta förelkomsten av
-**en** punkt `.` någonstans i strängen. Funktionen `atof()` i 
-`ctype.h` vet hur man omvandlar en sträng till ett flyttal. 
+**en** punkt `.` någonstans i strängen. Funktionen `atof()` i
+`ctype.h` vet hur man omvandlar en sträng till ett flyttal.
 
 
 ## Enkel aritmetikdrillare
@@ -522,9 +527,9 @@ Skriv ett enkelt program som ett enkelt artitmetiskt uttryck på
 formatet
 
     tal1 op tal2 = ?
-    
+
 Där `tal1` och `tal2` är framslumpade tal i intervallet [1..1024]
-och `op` är en framslumpad operator i mängden {+, -, *, /}. 
+och `op` är en framslumpad operator i mängden {+, -, *, /}.
 
 Användaren skall mata in tal och programmet kontrollerar att det
 inmatade talet är korrekt.
