@@ -550,7 +550,7 @@ bibliotek/moduler, placering av funktioner och definitioner,
 inkapsling och synlighet.
 
 
-## Grand Finale! Kompilera om Gissa Talet mot nya `utils`
+## *Grand Finale! Kompilera om Gissa Talet mot nya `utils` (Skall redovisas)
 
 Om du har gjort allt rätt kan du kompilera om ditt Gissa
 Talet-program från föregående lab mot ditt nya `utils`-bibliotek:

@@ -433,7 +433,7 @@ den sista `translate()`-funktionen.
    Returtypen på `area_circle()` skall vara ett flyttal.
 
 
-## Databas
+## *Databas (Skall redovisas)
 
 Detta program skall skrivas i filen `db.c`. **Du kommer att kunna återanvända
 stora delar av detta program i inlämningsuppgift 1 på kursen!**

@@ -237,7 +237,7 @@ bara miska _as_ med 1. Om jag ville ta bort 3:an räcker det med
 att kopiera över 3:an med 4:an, lämna 1 och 2, och minska _as_ med 1.
 
 
-### Integration
+### *Integration (Skall redovisas)
 
 Skriv en funktion `event_loop()` som anropar `ask_question_menu()`
 och baserat på svaret antingen `add_item_to_db()`,
