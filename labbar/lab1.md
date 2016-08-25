@@ -16,6 +16,9 @@ ingen handledning, men vi råder dig att installera Linux under
 kursens gång då det är en bättre programmeringsmiljö för den
 C-programmering som vi skall göra.
 
+**Tips** I kursrepots [extramaterial](../extramaterial) finns
+screencasts och en lathund om grundläggande Emacs-användning.
+
 ### Linux
 
 Kör `emacs --version` i terminalen. Om du har en yngre Emacs än
