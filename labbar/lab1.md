@@ -1,4 +1,4 @@
-# Lab 1: Grundläggande koncept 1/X
+# Labb 1: Grundläggande koncept 1/X
 
 Välkommen till Adams Weckor! De här två första veckorna är till
 för att du ska lära dig programmera i C. Du kommer garanterat inte
@@ -23,11 +23,11 @@ och ner.
 ### Deadlines
 
 Vi rekommenderar att man försöker hinna klart med uppgifterna på
-labben de ges. Varje labs _mjuka deadline_ är alltså samma dag som
+labben de ges. Varje labbs _mjuka deadline_ är alltså samma dag som
 den ges. Om du av någon anledning inte hinner klart, eller om du
 missar en labb kan du göra klart labben på egen hand och istället
-redovisa den på efterföljande lab. Varje labs _hårda deadline_ är
-alltså efterföljande labtillfälle.
+redovisa den på efterföljande labb. Varje labbs _hårda deadline_ är
+alltså efterföljande labbtillfälle.
 
 Om du av någon anledning tror att du inte kommer klara någon hård
 deadline, hör av dig till en senior assistent eller till Tobias så
@@ -37,7 +37,7 @@ hittar vi en lösning!
 
 Det finns många sätt att komma vidare om du kör fast:
 
-* Fråga en labassistent - Assarna är här för att hjälpa till. Kom
+* Fråga en labbassistent - Assarna är här för att hjälpa till. Kom
   ihåg att de inte sitter på "det rätta svaret" (det finns nästan
   aldrig bara en enda lösning när man programmerar) men
   förmodligen kan hjälpa dig komma vidare med din efen lösning.
@@ -47,7 +47,7 @@ Det finns många sätt att komma vidare om du kör fast:
   lösningar rakt av så finns det inga problem att diskutera
   lösningar med varandra.
 * Ställ en fråga på Piazza - På Piazza kan din fråga besvaras av
-  assistenter och av andra studenter utanför labtid. Gör gärna din
+  assistenter och av andra studenter utanför labbtid. Gör gärna din
   fråga publik så att fler kan ta del av svaren!
 * Googla problemet - Att kunna hitta svaret på sina frågor på
   Internet är en av de viktigaste sakerna man måste lära sig som
@@ -691,7 +691,7 @@ Vi kan nu beskiva ytterligare C-operatorer i termer av de vi redan sett:
 
 Nu har det blivit dags för oss att skriva vår första funktion (förutom
 `main()`-funktionen då) -- vilket vi kommer att ägna oss åt under nästa
-lab. Vi skall skriva funktionen `is_number()` som tar emot en sträng
+labb. Vi skall skriva funktionen `is_number()` som tar emot en sträng
 (`char *`) och returnerar en boolean (`bool`) -- `true` om den inskickade
 strängen är ett tal, annars `false`.
 
@@ -798,7 +798,7 @@ högre upp i filen än där de anropas. C-kompilatorn läser filen i
 radordning, och om den inte först har sett en funktions
 **deklaration** så kan den inte kontrollera att anropen till den
 är korrekta, till exempel med avseende på antalet parametrar.
-Redan i nästa lab skall vi se hur man kan komma runt detta med
+Redan i nästa labb skall vi se hur man kan komma runt detta med
 så-kallade `header`-filer.
 
 ### Om return-satsen

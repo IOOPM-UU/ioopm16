@@ -1,4 +1,4 @@
-# Lab 3: Rekursion, Generalisering & Funktionspekare
+# Labb 3: Rekursion, Generalisering & Funktionspekare
 
 ## Uppvärmning: strängfunktioner
 
@@ -88,7 +88,7 @@ skriva `putchar(s[3])` för att skriva ut dess fjärde tecken.
 ## Rekursion i C
 
 Du är bekant med rekursionsbegreppet sedan PKD. Rekursion i C
-fungerar i stort sett likadant. I lab 1 var en extrauppgift att implementera ett
+fungerar i stort sett likadant. I labb 1 var en extrauppgift att implementera ett
 program som skrev ut tal ur Fibonacci-serien på ett _imperativt_
 sätt. Nedan följer ett liknande program, som bara skriver ut det
 sista talet i serien och inte varenda tal på vägen dit. Målet med
@@ -210,7 +210,7 @@ long sum(int numbers[], int numbers_siz)
 programmet längst upp på sidan så att den är **rekursiv**.
 
 **Ledning:**
-Vi upprepar den rekursiva definitionen av Fibonacci-serien från lab1:
+Vi upprepar den rekursiva definitionen av Fibonacci-serien från labb 1:
 
     fib(1) = 0
     fib(2) = 1
@@ -375,7 +375,7 @@ andra namn om man så önskar.
 exemplet från `int_fold_func`.
 
 Ett exempel på en kontrollfunktion är den `is_number()` som du
-redan skrivit (lab1) och som tar in en sträng och returnerar true eller
+redan skrivit (labb 1) och som tar in en sträng och returnerar true eller
 false beroende på om strängen kan konverteras till ett tal. En
 kontrollfunktion som kontrollerar att en sträng inte är tom kan se
 ut så här:
@@ -449,7 +449,7 @@ int ask_question_int(char *question)
 }
 ```
 
-Om du har skrivit en `is_float()` på en tidigare lab kan du
+Om du har skrivit en `is_float()` på en tidigare labb kan du
 använda den för att definiera `ask_question_float()`. Dock -- för
 att göra detta måste vi skapa en funktion som skapar ett
 `answer_t` från en `double`:
@@ -464,7 +464,7 @@ answer_t make_float(char *str)
 ```
 
 Eller, mer kompakt (skapar ett nytt `answer_t`-värde) -- via en syntax
-som vi skall behandla i mer detalj på nästa lab:
+som vi skall behandla i mer detalj på nästa labb:
 
 ```c
 answer_t make_float(char *str)
@@ -553,7 +553,7 @@ inkapsling och synlighet.
 ## *Grand Finale! Kompilera om Gissa Talet mot nya `utils` (Skall redovisas)
 
 Om du har gjort allt rätt kan du kompilera om ditt Gissa
-Talet-program från föregående lab mot ditt nya `utils`-bibliotek:
+Talet-program från föregående labb mot ditt nya `utils`-bibliotek:
 
     > gcc -Wall utils.c guess.c
 

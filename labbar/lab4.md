@@ -1,4 +1,4 @@
-# Lab 4: Del 1 -- pekare
+# Labb 4: Del 1 -- pekare
 
 Pekare -- adresser till platser i minnet där data är lagrat -- är
 en viktig del av C-programmering. Genom att dela information
@@ -173,7 +173,7 @@ void string_copy(char *source, char *dest)
 ```
 
 För att illustrera pekararitmetik ytterligare kan vi skriva om
-`string_length()` från lab 3 så här:
+`string_length()` från labb 3 så här:
 
 ```c
 int string_length(char *str)
@@ -191,7 +191,7 @@ Förklaring:
 3. Längden på strängen är "avståndet" mellan `end` och `str` när `end` pekar på strängens nulltecken
 
 
-## Skriv om `print` från lab 3 med pekare istället för array-index
+## Skriv om `print` från labb 3 med pekare istället för array-index
 
 ```c
 void print(char *str)
@@ -203,7 +203,7 @@ void print(char *str)
 Använd `str` som en pekare och använd inte array-indexering
 (alltså inte `str[12]`).
 
-**Ledning:** Vi kan implementera `trim()`-funktionen från lab 3 på
+**Ledning:** Vi kan implementera `trim()`-funktionen från labb 3 på
 motsvarande sätt:
 
 ```c
@@ -226,7 +226,7 @@ char *trim(char *str)
 }
 ```
 
-# Lab 4: Del 2 -- struktar
+# Labb 4: Del 2 -- struktar
 
 **Struktar** är grupperingar av värden. En strukt-deklaration skapar
 en ny typ som kan användas i ett C-program.

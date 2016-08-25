@@ -1,4 +1,4 @@
-# Lab 5: mer I/O och utökning av `db.c`
+# Labb 5: mer I/O och utökning av `db.c`
 
 Hittills har vi talat om att läsa och skriva till och från
 terminalen. Lyckligtvis är en grundläggande abstraktion kring I/O
@@ -204,7 +204,7 @@ Inget `strdup()` i denna funktion i så fall!)
 ### Tillägg i databasen
 
 Skriv en funktion `add_item_to_db()` som lägger till en vara i
-databasen med `input_item()` från föregående lab. Du kan
+databasen med `input_item()` från föregående labb. Du kan
 förutsätta att det finns plats i databasen.
 
 * Vad skall funktionen ta som input?

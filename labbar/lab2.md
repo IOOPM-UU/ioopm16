@@ -1,4 +1,4 @@
-# Lab 2: I/O och funktioner
+# Labb 2: I/O och funktioner
 
 ## Varningar
 
@@ -46,7 +46,7 @@ angivet tal på detta sätt:
 
 Strukturera programmet så här:
 
-1. En `main()`-funktion som läser in ett tal _T_ som ett kommandoradsargument (se föregående lab)
+1. En `main()`-funktion som läser in ett tal _T_ som ett kommandoradsargument (se föregående labb)
 2. En loop i `main()`-funktionen som räknar från 1 till _T_
 3. En funktion `void print_number(int num)` som anropas för varje _T_ och skriver _T_, Fizz, Buzz eller Fizz Buzz
 4. Fundera på hur du skall göra för att inte ha något sista avslutande `,`-tecken
@@ -331,7 +331,7 @@ att vi sparar det vi läste in i `buf`. Vidare måste vi:
 2. Se till att räknarens värde inte överstiger `buf_siz-1`
 3. Se till att strängen vi läser in blir korrekt nullterminerad
 
-Som du kanske minns från föregående lab är en sträng en array av
+Som du kanske minns från föregående labb är en sträng en array av
 tecken som slutar med tecknet `'\0'`. Eftersom detta tecken också
 tar upp en plats i strängen får vi inte läsa in `buf_siz` tecken
 utan högst `buf_siz-1` tecken. Genom att skriva `'\0'` sist i
@@ -522,7 +522,7 @@ med materialet.
 ## Implementera om `ask_question_int()`
 
 Implementera om `ask_question_int()` i termer av `read_string()`
-och den `is_number()` som du implementerade på föregående lab.
+och den `is_number()` som du implementerade på föregående labb.
 
 Du skall alltså använda `read_string()` för att läsa in en sträng,
 och sedan `is_number()` för att verifiera att den inlästa strängen
