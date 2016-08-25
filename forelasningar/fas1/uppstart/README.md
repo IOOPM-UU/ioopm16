@@ -14,7 +14,7 @@ relevanta för oss nu! De täcks till stor utsträckning av
 föreläsningarna, men ger ytterligare hjälp och information. Om du
 kör fast med en labb kan det vara bra att kolla nedan för hjälp!
 
-* [io](extra/io) -- grundläggande om I/O
+* [io](extra/io/) -- grundläggande om I/O
 * [arrayer](extra/arrayer) -- grundläggande om arrayer
 * [rekursion](extra/rekursion) -- grundläggande om rekursion i C
 * [debuggning](extra/debuggning) -- grundläggande om debuggning
