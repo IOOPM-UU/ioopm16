@@ -10,14 +10,14 @@ ytterligare paket skrivna i Emacs-lisp. Man kan skriva dessa paket
 själv, eller ladda ned dem och installera dem själv eller via
 Emacs inbyggda pakethanterare.
 
+**Tips** I kursrepots [extramaterial](../extramaterial) finns
+screencasts och en lathund om grundläggande Emacs-användning.
+
 Nu följer två olika uppsättningar instruktioner beroende på om du
 kör Linux eller OS X/macOS. För dig som kör Windows har vi tyvärr
 ingen handledning, men vi råder dig att installera Linux under
 kursens gång då det är en bättre programmeringsmiljö för den
 C-programmering som vi skall göra.
-
-**Tips** I kursrepots [extramaterial](../extramaterial) finns
-screencasts och en lathund om grundläggande Emacs-användning.
 
 ### Linux
 
@@ -39,12 +39,11 @@ stavning i `curl`-steget!
 
 ### OS X/macOS
 
-TODO:
-* install homebrew
-* install emacs from cask
-* alias emacs to new emacs install
-
-END TODO
+Har du redan Emacs, kontrollera att det är en nyare version än 24
+(`M-x version` i Emacs). Vid behov kan du ladda hem en
+okonfigurerad version från
+[https://emacsformacosx.com/](https://emacsformacosx.com/) som är
+tillräckligt ny. Kör sedan nedanstående i en terminal.
 
     > cd ~
     > mkdir .emacs.d
@@ -57,8 +56,6 @@ Notera att om du skriver fel i den långa URL:en ovan kommer du
 fortfarande att få en fil `e.zip` men som förstås inte går att
 packa upp. Om `unzip`-steget inte fungerar -- kontrollera din
 stavning i `curl`-steget!
-
-
 
 ## Steg 2: Setup
 
