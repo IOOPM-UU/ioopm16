@@ -1,5 +1,12 @@
 # Extramaterial
 
+Filer i denna katalog
+
+* `C addendum om stack och heap` -- obligatorisk läsning för alla på kursen 
+* `CommonCompilerErrors.java` -- en genomgång av vanliga kompilatormeddelanden i Java
+* `Defensiv programmering -- Checklista` -- för mål I22
+* `Kodgranskningsprotokoll` -- för mål P45 och P46
+
 ## Gamla kodprov
 
 Gamla kodprov finns i katalogen med samma namn. 
