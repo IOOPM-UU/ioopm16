@@ -62,16 +62,22 @@ Det finns många sätt att komma vidare om du kör fast:
 
 ### Om du redan "kan programmera"
 
-Bit ihop :)
+De första två veckorna har vi valt att prioritera de som inte har
+programmerat mycket innan så att fler ska nå en nivå där det går
+att samarbeta och göra intressanta och roliga saker. Om du redan
+kan det som tas upp här kommer labbarna att gå snabbt. Om du
+stöter på något som tar längre tid så visade det sig att det fanns
+något för dig att lära dig ändå!
 
-Om du redan kan de här sakerna kommer labbarna att gå snabbt. Om
-du stöter på något som tar längre tid så visade det sig att det
-fanns något för dig att lära dig ändå!
+Blir du klar med uppgiften tidigt får du gärna hjälpa andra, men
+kom ihåg att poängen med att ge någon hjälp inte är att den andra
+ska bli klar så snabbt som möjligt utan denne ska lära sig så
+mycket som möjligt!
 
 ## Labbarna
 
-* [Labb 1](lab1)
-* [Labb 2](lab2)
-* [Labb 3](lab3)
-* [Labb 4](lab4)
-* [Labb 5](lab5)
+* [Labb 1 (30/8)](lab1.md)
+* [Labb 2 (1/9)](lab2.md)
+* [Labb 3 (2/9)](lab3.md)
+* [Labb 4 (6/9)](lab4.md)
+* [Labb 5 (8/9)](lab5.md)
