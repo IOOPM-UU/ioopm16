@@ -80,7 +80,7 @@ att använda **editorn** för att skriva text och **terminalen** för
 att kompilera och köra programmet. Pröva att växla några gånger
 mellan programmen.
 
-Du bör kunna använda `Ctrl+Win(TODO)+vänsterpil` för att maximera det
+Du bör kunna använda `Ctrl+Win+vänsterpil` för att maximera det
 aktuella fönstret på skärmens vänstra halva och motsvarande för
 den högra. Det är ett bra sätt att ha både terminalen och editorn
 så att man kan se all information alltid.
