@@ -5,7 +5,6 @@ TODO:
 * Vad skall de redovisa
 * Hur skall de redovisa
 * Vad händer om man inte hinner klart?
-* Lägg till -Wall överallt
 END TODO
 
 ## Steg 1: Emacs-fix
@@ -663,7 +662,7 @@ bool is_number(char *str)
 }
 ```
 
-Du har nu deklarerat en funktion, `ìs_number()`, som tar emot en
+Du har nu deklarerat en funktion, `is_number()`, som tar emot en
 sträng och returnerar ett sanningsvärde -- ett booleskt värde (aka
 "en boolean"). Funktionens _kropp_ är just nu tom, så när som på
 satsen `return false`, vilket innebär att funktionen alltid svarar

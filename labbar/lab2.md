@@ -1,5 +1,16 @@
 # Lab 2: I/O och funktioner
 
+## Varningar
+
+Från och med den här labben kommer vi att använda flaggan `-Wall`
+(`W`arnings `all`) varje gång vi kompilerar. Det berättar för
+kompilatorn att den ska ge varningar för fler saker än vanligt.
+Var vaksam om du får en varning från kompilatorn. Även om felet
+inte alltid ligger precis där kompilatorn varnar så betyder en
+varning i 99% av fallen att någonting är fel i programmet.
+
+**Åtgärda alltid varningar innan du går vidare**
+
 ## Uppvärmning: Fizz Buzz
 
 Fizz Buzz är en klassisk programmeringsövning som går ut på att
