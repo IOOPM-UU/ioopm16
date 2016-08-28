@@ -39,11 +39,33 @@ stavning i `curl`-steget!
 
 ### OS X/macOS
 
-Har du redan Emacs, kontrollera att det är en nyare version än 24
-(`M-x version` i Emacs). Vid behov kan du ladda hem en
+Kör `emacs --version` i terminalen. Om du har en yngre Emacs än
+version 24 skall måste du uppgradera den för att nedanstående
+skall fungera. Vid behov kan du ladda hem och installera en
 okonfigurerad version från
 [https://emacsformacosx.com/](https://emacsformacosx.com/) som är
-tillräckligt ny. Kör sedan nedanstående i en terminal.
+tillräckligt ny. Om du vill att din nya version ska öppnas när du
+skriver `emacs` i terminalen kan du skapa ett alias. Skriv
+följande i en terminal:
+
+    > cd ~                  # Gå till hemkatalogen
+    > emacs .bash_profile   # Öppna din profil
+
+I den öppnade filen, lägg till följande rad:
+
+    alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
+
+Spara och avsluta (`C-x C-s` `C-x C-c`) och kör ytterligare ett
+kommando i terminalen:
+
+    > source ~/.bash_profile
+
+Nu kommer du att öppna Emacs i ett eget fönster när du skriver
+`emacs`. Om du vill köra Emacs i terminalen kan du använda
+kommandot `emacs -nw`.
+
+För att skaffa kursens Emacs-konfiguration, kör nedanstående i en
+terminal.
 
     > cd ~
     > mkdir .emacs.d
