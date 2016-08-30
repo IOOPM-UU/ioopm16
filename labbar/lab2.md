@@ -488,12 +488,12 @@ Programmet skall alltså:
 5. Vid bingo, skriv ut "Det tog _N_ _G_ gissningar att komma fram till _T_"
 6. Om _G_ når 15, skriva ut "Nu har du slut på gissningar! Jag tänkte på _T_!"
 
-Funktionen `random()` returnerar ett slumptal som kan vara mycket
+Funktionen `rand()` returnerar ett slumptal som kan vara mycket
 stort. För att skapa ett slumptal mellan 0 och _N_ kan du använda
 _modulo_:
 
 ```c
-random() % 1024  // slumptal mellan 0 och 1023
+rand() % 1024  // slumptal mellan 0 och 1023
 ```
 
 Programmet använder naturligtvis funktionerna från `utils.c`, utefter
