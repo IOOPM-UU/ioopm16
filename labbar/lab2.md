@@ -480,7 +480,7 @@ Om man tar mer än 15 gissningar på sig skall programmet skriva ut:
 
 Programmet skall alltså:
 
-1. Slumpa fram ett tal _T_ (med hjälp av funktionen `random()` i `stdlib.h`)
+1. Slumpa fram ett tal _T_ (med hjälp av funktionen `rand()` i `stdlib.h`)
 2. Fråga efter användarens namn _N_
 3. Skriva ut "Du _N_, jag tänker på ett tal kan du gissa vilket?"
 4. I en loop, läsa in tal från användaren och skriva ut "För litet!"
