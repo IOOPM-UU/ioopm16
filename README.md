@@ -12,8 +12,9 @@ organiserat som följer:
   föreläsningsbilder och eventuell utdelad kod från de fysiska
   föreläsningarna.
 * Under [uppgifter](uppgifter) hittar du kursens
-  inlämningsuppgifter, samt [introlabbar](labbar/) för kursens
-  första vecka.
+  inlämningsuppgifter.
+* Under [labbar](labbar/) hittar du kursens
+  labbar, inklusive labbarna för de två första veckorna.
 * Under [extramaterial](extramaterial) hittar du allt annat.
 
 Mer information finns i dessa katalogers `README.md`.
