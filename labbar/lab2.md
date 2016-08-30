@@ -27,6 +27,7 @@ som går igenom hur `gdb` fungerar. Om du stöter på en bugg och
 vill prova att använda `gdb` redan på den här labben kan du be en
 assistent om hjälp.
 
+
 ## Uppvärmning: Fizz Buzz
 
 Fizz Buzz är en klassisk programmeringsövning som går ut på att
@@ -52,6 +53,7 @@ Strukturera programmet så här:
 4. Fundera på hur du skall göra för att inte ha något sista avslutande `,`-tecken
 
 **Tips:** i C är operatorn `%` modulo, dvs. `10 % 5 = 0` och `10 % 3 = 1`.
+
 
 ## I/O
 
@@ -127,7 +129,8 @@ Vi är nu redo att skriva vår första implementation av funktionen.
 **OBS:** innan det finns en `main()`-funktion i denna fil måste du
 kompilera med flaggan `-c` för att tala om för kompilatorn att du
 inte försöker skapa ett körbart program. Vi återkommer till denna
-flagga senare under kursen.
+flagga senare under kursen. (Du kan också lägga till en
+`main()`-funktion som vi gör nedan.)
 
 ```c
 int ask_question_int(char *question)
@@ -170,12 +173,12 @@ vad resultatet blir:
 
 Inläsning från tangentbordet i C fungerar genom en
 _tangentbordsbuffert_ som du kan tänka på som en sträng i datorns
-minne. `scanf()`-rutinen ovan förväntar sig ett heltal (styrkoden
-`%d`) vilket betyder att inläsningen av `1a` slutar vid `1`, så att
-`a\n` lämnas kvar i minnet (observera radbrytningstecknet `\n`).
-Vid nästa inläsning finns `a\n` kvar i bufferten och eftersom
-`scanf()` läser rad för rad kommer scanf inte att kunna läsa in
-något tal.
+minne. `scanf()`-funktionen ovan förväntar sig ett heltal
+(styrkoden `%d` -- tänk _digits_) vilket betyder att inläsningen
+av `1a` slutar vid `1`, så att `a\n` lämnas kvar i minnet
+(observera radbrytningstecknet `\n`). Vid nästa inläsning finns
+`a\n` kvar i bufferten och eftersom `scanf()` läser rad för rad
+kommer scanf inte att kunna läsa in något tal.
 
 Vår `ask_question_int()` behöver bli lite smartare: vi måste
 kontrollera vad `scanf()` lyckas med.
@@ -205,9 +208,11 @@ int ask_question_int(char *question)
 ```
 
 Det gör den inte, och problemet ligger i att en misslyckad
-`scanf()` inte tömmer tangentbordsbufferten. Nästa varv i loopen
-är alltså dömt att misslyckas. Det betyder att om vi skriver in
-`1a` med detta program kommer programmet att köra för evigt!
+`scanf()` inte tömmer tangentbordsbufferten (vi har ju bara bett
+om att läsa till och med nästa tal -- inte det som kommer efter).
+Nästa varv i loopen i detta program är alltså dömt att misslyckas.
+Det betyder att om vi skriver in `1a` med detta program kommer
+programmet att köra för evigt!
 
 Det finns ingen bästa lösning på detta problem, men en möjlig
 lösning som är både vettig och enkel är att kasta bort resten av

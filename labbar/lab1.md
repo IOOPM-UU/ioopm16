@@ -554,6 +554,10 @@ En _optimering_ av algoritmen ovan är att inte växa _x_ högre än
 roten av _N_. Roten av _N_ kan räknas fram med
 biblioteksfunktionen `sqrt()`:
 
+**OBS!** Om du har problem med att kompilera program med `sqrt()`
+i för att sådana program inte finns, lägg till `-lm` till
+kompileringen. Det betyder "länka mot matematikbiblioteket".
+
 ```c
 float roten_ur_n = sqrt(N);
 ```
