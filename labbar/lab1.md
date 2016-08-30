@@ -1,10 +1,12 @@
 # Labb 1: Grundläggande koncept
 
-**OBS!!!***
+**OBS!!!**
+
 På lab 5 kommer du att bli ombedd om att spara alla dina labbar 
 på GitHub! Se därför till att inte kasta bort eller slarva bort
 någon fil innan dess! 
-**OBS!!!***
+
+**OBS!!!**
 
 
 ## Steg 1: Emacs-fix
