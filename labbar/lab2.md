@@ -402,7 +402,7 @@ från det första försöket att implementera `ask_question_string()`
 men skall ha signaturen:
 
 ```c
-void ask_question_string(char *question, char *buf, int buf_siz)
+char *ask_question_string(char *question, char *buf, int buf_siz)
 ```
 
 Senare under kursen skall vi se hur vi kan ändra så att signaturen
