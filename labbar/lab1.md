@@ -2,9 +2,9 @@
 
 **OBS!!!**
 
-På lab 5 kommer du att bli ombedd om att spara alla dina labbar 
+På lab 5 kommer du att bli ombedd om att spara alla dina labbar
 på GitHub! Se därför till att inte kasta bort eller slarva bort
-någon fil innan dess! 
+någon fil innan dess!
 
 **OBS!!!**
 
@@ -707,7 +707,7 @@ if (argc > 1 && is_number(argv[1]))
 }
 else
 {
-  if (argc > 0)
+  if (argc > 1)
   {
     printf("%s is not a number\n", argv[1]);
   }
