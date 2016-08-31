@@ -485,7 +485,7 @@ Om man tar mer än 15 gissningar på sig skall programmet skriva ut:
 
 Programmet skall alltså:
 
-1. Slumpa fram ett tal _T_ (med hjälp av funktionen `random()` i `stdlib.h`)
+1. Slumpa fram ett tal _T_ (med hjälp av funktionen `rand()` i `stdlib.h`)
 2. Fråga efter användarens namn _N_
 3. Skriva ut "Du _N_, jag tänker på ett tal kan du gissa vilket?"
 4. I en loop, läsa in tal från användaren och skriva ut "För litet!"
@@ -493,12 +493,12 @@ Programmet skall alltså:
 5. Vid bingo, skriv ut "Det tog _N_ _G_ gissningar att komma fram till _T_"
 6. Om _G_ når 15, skriva ut "Nu har du slut på gissningar! Jag tänkte på _T_!"
 
-Funktionen `random()` returnerar ett slumptal som kan vara mycket
+Funktionen `rand()` returnerar ett slumptal som kan vara mycket
 stort. För att skapa ett slumptal mellan 0 och _N_ kan du använda
 _modulo_:
 
 ```c
-random() % 1024  // slumptal mellan 0 och 1023
+rand() % 1024  // slumptal mellan 0 och 1023
 ```
 
 Programmet använder naturligtvis funktionerna från `utils.c`, utefter
