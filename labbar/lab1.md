@@ -781,6 +781,7 @@ inget värde.
 Felaktigt användande av `return` kan leda till _död kod_, dvs. kod
 som aldrig kommer att utföras, t.ex.:
 
+:warning: **OBS!** _Illustrerar död kod -- skriv inte så här!_ :warning:
 ```c
 int dead_code_example()
 {

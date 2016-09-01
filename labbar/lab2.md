@@ -191,6 +191,7 @@ lyckad.
 Intuitivt kanske man kan tycka att följande funktion borde lösa
 problemet:
 
+:warning: **OBS!** _Inte dålig kod, men inte rätt för vad vi vill nu._ :warning: 
 ```c
 int ask_question_int(char *question)
 {
@@ -206,7 +207,6 @@ int ask_question_int(char *question)
   return result;
 }
 ```
-:warning: **OBS!** _Inte dålig kod, men inte rätt för vad vi vill nu._ :warning: 
 
 Det gör den inte, och problemet ligger i att en misslyckad
 `scanf()` inte tömmer tangentbordsbufferten (vi har ju bara bett
@@ -298,6 +298,7 @@ två hjälpfunktioner för att kontrollera strängens längd
 (`strlen()`) och skapa en kopia av den inlästa strängen som vi
 returnerar (`strdup()`):
 
+:warning: **OBS!** _Varning för negativt exempel -- nedanstående kod är dålig._ :warning: 
 ```c
 #include <string.h>
 
@@ -494,7 +495,9 @@ Programmet skall alltså:
 5. Vid bingo, skriv ut "Det tog _N_ _G_ gissningar att komma fram till _T_"
 6. Om _G_ når 15, skriva ut "Nu har du slut på gissningar! Jag tänkte på _T_!"
 
-Funktionen `random()` returnerar ett slumptal som kan vara mycket
+:warning: **OBS!** _På vissa maskiner fungerar rand() bättre än random()._ :warning:
+
+Funktionen `random()` i `stdlib.h` returnerar ett slumptal som kan vara mycket
 stort. För att skapa ett slumptal mellan 0 och _N_ kan du använda
 _modulo_:
 

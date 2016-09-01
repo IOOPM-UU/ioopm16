@@ -1,5 +1,10 @@
 # Labb 3: Rekursion, Generalisering & Funktionspekare
 
+Om du känner att du är stressad och har ont om tid -- kan det
+ibland vara en god idé att pröva att gå direkt på funktionspekare,
+dvs. hoppa över början. 
+
+
 ## Uppvärmning: strängfunktioner
 
 Skapa ett program `str.c`.
@@ -252,6 +257,7 @@ typalias är så här:
 
 Exempel på typalias som inte berör funktionspekare:
 
+:warning: **OBS!** _se noten om `string_t` nedan!_ :warning:
 ```c
 typedef char * string_t;
 typedef unsigned int age_t;
