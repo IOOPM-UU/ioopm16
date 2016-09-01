@@ -278,7 +278,13 @@ Koden ovan definierar typen `int_fold_func` som en funktion som
 tar som argument två `int`:ar och returnerar en `int`. I Haskell
 skulle typen skrivas `Int -> Int -> Int`. Asterisken `*` framför
 namnet `int_fold_func` ovan är det som gör det hela till en
-pekare.
+pekare. **Denna skall dock inte vara med i namnet**. 
+
+Om jag har en funktion `add(...)` och vill skicka en pekare till
+den funktionen skriver jag alltså `add`. Funktionens namn utan
+parenteser och argument. Om jag skriver `add(2,2)` är det ju
+ett helt vanligt **anrop** till funktionen och det som skickas
+in är resultatet! 
 
 Nu kan vi använda `int_fold_func` som en datatyp och deklarara
 t.ex. en "[left fold](http://learnyouahaskell.com/higher-order-functions)" (som du kanske minns från PKD). Om du inte minns hur en left fold fungerar -- försök
