@@ -545,7 +545,7 @@ följande funktioner (åtminstone), i någon ordning:
 * Typen `check_func`
 * Typen `convert_func`
 * Deklarationen `extern char *strdup(const char *);`
-* `char *read_string(char *buf, int buf_siz)`
+* `int read_string(char *buf, int buf_siz)`
 * `bool is_number(char *str)`
 * `bool is_float(char *str)` och `answer_t make_float(char *)` (inte obligatoriska)
 * `bool not_empty(char *str)`
