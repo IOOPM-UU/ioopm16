@@ -191,7 +191,6 @@ lyckad.
 Intuitivt kanske man kan tycka att följande funktion borde lösa
 problemet:
 
-:warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: 
 ```c
 int ask_question_int(char *question)
 {
@@ -207,6 +206,7 @@ int ask_question_int(char *question)
   return result;
 }
 ```
+:warning: **OBS!** _Inte dålig kod, men inte rätt för vad vi vill nu._ :warning: 
 
 Det gör den inte, och problemet ligger i att en misslyckad
 `scanf()` inte tömmer tangentbordsbufferten (vi har ju bara bett
