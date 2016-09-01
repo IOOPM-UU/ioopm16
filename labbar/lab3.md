@@ -43,7 +43,8 @@ int main(int argc, char *argv[])
     {
       int expected = strlen(argv[i]);
       int actual   = string_length(argv[i]);
-      printf("strlen(\"%s\")=%d\t\tstring_length(\"%s\")=%d\n", expected, actual);
+      printf("strlen(\"%s\")=%d\t\tstring_length(\"%s\")=%d\n",
+             argv[i], expected, argv[i], actual);
     }
   }
   return 0;
