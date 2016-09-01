@@ -191,6 +191,7 @@ lyckad.
 Intuitivt kanske man kan tycka att följande funktion borde lösa
 problemet:
 
+:warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: 
 ```c
 int ask_question_int(char *question)
 {
