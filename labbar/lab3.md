@@ -2,7 +2,7 @@
 
 Om du känner att du är stressad och har ont om tid -- kan det
 ibland vara en god idé att pröva att gå direkt på funktionspekare,
-dvs. hoppa över början. 
+dvs. hoppa över början.
 
 
 ## Uppvärmning: strängfunktioner
@@ -284,13 +284,13 @@ Koden ovan definierar typen `int_fold_func` som en funktion som
 tar som argument två `int`:ar och returnerar en `int`. I Haskell
 skulle typen skrivas `Int -> Int -> Int`. Asterisken `*` framför
 namnet `int_fold_func` ovan är det som gör det hela till en
-pekare. **Denna skall dock inte vara med i namnet**. 
+pekare. **Denna skall dock inte vara med i namnet**.
 
 Om jag har en funktion `add(...)` och vill skicka en pekare till
 den funktionen skriver jag alltså `add`. Funktionens namn utan
 parenteser och argument. Om jag skriver `add(2,2)` är det ju
 ett helt vanligt **anrop** till funktionen och det som skickas
-in är resultatet! 
+in är resultatet!
 
 Nu kan vi använda `int_fold_func` som en datatyp och deklarara
 t.ex. en "[left fold](http://learnyouahaskell.com/higher-order-functions)" (som du kanske minns från PKD). Om du inte minns hur en left fold fungerar -- försök
@@ -491,7 +491,7 @@ Här skriver vi `ask_question_float()` utan den onödiga variabeln
 på slutet!).
 
 ```c
-int ask_question_float(char *question)
+double ask_question_float(char *question)
 {
   return ask_question(question, is_float, make_float).f;
 }
@@ -552,7 +552,7 @@ följande funktioner (åtminstone), i någon ordning:
 * `answer_t ask_question(char *question, check_func check, convert_func convert)`
 * `char *ask_question_string(char *question)`
 * `int ask_question_int(char *question)`
-* `float ask_question_float(char *question)` (inte obligatorisk)
+* `double ask_question_float(char *question)` (inte obligatorisk)
 
 Själva definitionen av funktionerna (med koden i) skall ligga i
 `utils.c`. Funktionsprototyperna (t.ex. `bool is_number(char
