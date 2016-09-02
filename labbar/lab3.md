@@ -218,13 +218,13 @@ programmet längst upp på sidan så att den är **rekursiv**.
 **Ledning:**
 Vi upprepar den rekursiva definitionen av Fibonacci-serien från labb 1:
 
-    fib(1) = 0
+    fib(1) = 1
     fib(2) = 1
     fib(i) = fib(i-1) + fib(i-2) om i > 2
 
 En något mer C-lik pseudokod skulle vara:
 
-    fib(i) = 0                     om i = 0
+    fib(i) = 1                     om i = 0
              1                     om i = 1
              fib(i-1) + fib(i-2)   annars
 
