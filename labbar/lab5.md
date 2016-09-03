@@ -82,7 +82,7 @@ inifrån C (istället för att skicka in den utifrån som ovan):
 * etc.
 
 
-## Cat med radnumrering
+## Uppvärmning: Cat med radnumrering
 
 Nedan följer en version av programmet `cat` som läser en fil och
 skriver ut filen på terminalen (`stdout`). Programmet är väldigt
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-(observera att detta program inte fungerar så bra om vi anger filer som inte finns.)
+(observera att detta program inte fungerar så bra om vi anger filer som inte finns -- men det är inget du behöver fixa.)
 
 Titta på programmet ovan: i funktionen `cat()` läser vi infilen
 tecken för tecken. Nu vill vi skriva ut filen så att varje rad
@@ -144,14 +144,14 @@ börjar med ett radnummer. Här är ett exempel från texten i labben:
   * Skriv ut räknaren
 
 
-**Frivilliga utökningar**
+**Uppvärmning: Frivilliga utökningar av cat**
 
 1. Utöka programmet så att när flera filer skrivs ut (stöds redan) börjar radräknaren _inte_ om från 0 vid varje ny fil
 2. Innan varje fil skrivs ut, skriv ut `==== filnamn.ext ====` i terminalen
 3. Skriv om `cat.c` till `cp.c` och låt programmet kopiera från en fil till en annan, tecken för tecken, analogt med programmet `cp`
 
 
-## Utökning av databasen
+## Slutprojektet på labbarna: Utökning av databasen
 
 Nu skall vi avsluta vår implementation av databasprogrammet. I en
 senare inlämningsuppgift skall vi utöka databasen med stöd för att
