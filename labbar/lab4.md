@@ -545,7 +545,7 @@ int main(int argc, char *argv[])
   else
   {
     item_t db[16]; // Array med plats för 16 varor
-    db_siz = 0;    // Antalet varor i arrayen just nu
+    int db_siz = 0;    // Antalet varor i arrayen just nu
 
     int items = atoi(argv[1]); // Antalet varor som skall skapas
 
