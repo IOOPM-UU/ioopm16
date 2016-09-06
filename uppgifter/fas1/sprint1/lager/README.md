@@ -528,19 +528,19 @@ För dig som vill sitta och pilla med uppgiften och vill göra mer.
 9. Stöd för kompaktering, dvs. omorganisera lagret så att en vara
    är lagrad på angränsande hyllplatser.
 10. Skriv enhetstester för dina funktioner (detta kommer som ett
-    krav i näst-nästa utökning).
+    krav i nästa utökning).
 11. Stöd fär skiftlägesokänslighet vid inmatning av vara. Det vill
     säga, "kritor", "Kritor", "KRITOR" är samma vara.
 12. Vid inmatning av existerande vara, lista existerande lagerplats
     och kvantitet.
 13. Balansera binärträdet av varor.
 14. Stöd för att byta namn på en vara. Om man byter namn på en vara
-   V1 till ett redan existerande namn på en vara V2 skall man få
-   frågan om man vill slå ihop posterna. Då flyttas alla
-   lagerplatser från V1 till V2 och V1 tas bort ur databasen.
+    `V1` till ett redan existerande namn på en vara `V2` skall man få
+    frågan om man vill slå ihop posterna. Då flyttas alla
+    lagerplatser från `V1` till `V2` och `V1` tas bort ur databasen.
 15. Utöka stödet för att ångra till att omfatta alla förändringar
-   och utökningar som du har gjort, samt implementera "ångra
-   ångra" (aka redo).
+    och utökningar som du har gjort, samt implementera "ångra
+    ångra" (aka redo).
 
 
 # Förslag på mål att redovisa
