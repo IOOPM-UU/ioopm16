@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 {
   if (argc < 2)
   {
-    fprintf(stdout, "Usage: %s fil1 ...");
+    fprintf(stdout, "Usage: %s fil1 ...\n", argv[0]);
   }
   else
   {
