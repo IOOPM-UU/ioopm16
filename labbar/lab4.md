@@ -1,3 +1,5 @@
+**OBS!!** Om du känner dig stressad -- börja med den fråga som du skall redovisa och hoppa över resten av labben och spara den till senare! **OBS!!** 
+
 # Labb 4: Del 1 -- pekare
 
 Pekare -- adresser till platser i minnet där data är lagrat -- är
