@@ -15,7 +15,7 @@ detta projekt.
 **TIPS!** Ta fram anteckningspapper och penna. Den här
   specifikationen är lång och det kommer att löna sig att ta
   anteckningar om vad du skall göra. Det ingår alltså i problemet
-  som du skall lösa att *förstå problemet*. 
+  som du skall lösa att *förstå problemet*.
 
 **TIPS!** Efter att du har läst igenom denna uppgift kan du också
   titta på sidan om [simple](http://wrigstad.com/ioopm/simple.php)
@@ -85,8 +85,8 @@ frågan skall ställas igen. Exempel:
 **TIPS!** Hantering av felaktig inmatning är ett bra exempel på
   något som man kan *ducka* (se
   [simple](http://wrigstad.com/ioopm/simple.php)) vid en första
-  implementation. 
-  
+  implementation.
+
 **TIPS!** Det är enkelt att utöka `ask_question()` till att skriva
 ut `Felaktig inmatning 'foo'` om kontrollfunktionen returnerar `false`.
 
@@ -102,7 +102,7 @@ platsen där den är lagrad:
 * Lagerhylla skall vara en bokstav åtföljd av en eller flera
   siffror t.ex. *A25* men inte *A 25* eller *25A*
 
-I denna uppgift skall varan vara i sort densamma, **men** vi vill
+I denna uppgift skall varan vara i stort densamma, **men** vi vill
 också hålla reda på **antalet** varor av denna typ som är lagrad
 på den varje hyllplats. Detta kommer att leda till att varan
 definieras något annorlunda: vi måste göra en separat strukt för
@@ -166,7 +166,7 @@ Den valda varan listas på skärmen så här:
 
 Vara väljs på samma sätt som *Visa en vara*.
 
-När användaren väljer en vara skall varas visas på skärmen.
+När användaren väljer en vara skall varan visas på skärmen.
 Användaren får sedan frågan vilken *rad* som skall redigeras:
 
     [N]amn
@@ -298,7 +298,7 @@ i programmets databas:
    frigöra minne för varor som tas bort), likaså för lagerplatser.
 
 Ett utkast till gränssnittet (alltså listan av funktioner som en
-klient kan använda) för träd och lista finns [här](list.h) och
+klient kan använda) för lista och träd finns [här](list.h) och
 [här](tree.h).
 
 **TIPS!** Fundera över vad som är en lämplig moduluppdelning för
@@ -325,7 +325,7 @@ modifiera dess nycklar från en annan plats i programmet. Vi
 använder varornas namn i detta program -- varje namn representeras
 alltså som en array av tecken. Om man ändrar innehållet i en array
 `A` från t.ex. `"Anrikare av uran"` till `"Öljetter"` och `A`
-används som en nyckel i det binära trädet T har man förmodligen
+används som en nyckel i det binära trädet `T` har man förmodligen
 just förstört `T` så tillvida att man inte kan nå öljetterna i
 trädet längre (varför?). Ännu värre: vad händer om någon gör
 `free(A)` fast `A` fortfarande används av trädet?
@@ -351,16 +351,16 @@ skiftet till ett binärt sökträd kommer en vara nu enbart finnas
 lagrad en gång. När man lägger till en vara fler än en gång
 manipuleras nu den länkade listan med lagerplatser.
 
-Exempel: För att lägga till minecraftsvärden på de fyra
-lagerplatserna som angavs ovan kan du först lägga till varan på
-precis samma sätt som på labben. Användaren märker ingen skillnad
-men internt sparas svärden i trädet T med en lista L av
-lagerplatser vars längd kommer att vara ett (1) initialt. Nästa
-gång varan läggs till måste systemet se att varan redan finns.
-Denna kontroll sker lämpligen efter att namnet matas in genom en
-sökning i T. Om varan redan finns behöver vi inte fråga efter
-beskrivning eller pris. Istället frågar vi bara om lagerplats och
-kvantitet och uppdaterar L med den informationen.
+Exempel: För att lägga till ett antal minecraftsvärd på flera
+lagerplatser kan du först lägga till varan på precis samma sätt
+som på labben. Användaren märker ingen skillnad men internt sparas
+svärden i trädet `T` med en lista `L` av lagerplatser vars längd
+kommer att vara ett (1) initialt. Nästa gång varan läggs till
+måste systemet se att varan redan finns. Denna kontroll sker
+lämpligen efter att namnet matas in genom en sökning i `T`. Om
+varan redan finns behöver vi inte fråga efter beskrivning eller
+pris. Istället frågar vi bara om lagerplats och kvantitet och
+uppdaterar `L` med den informationen.
 
 Så här kan man tänka sig att interaktionen med användaren ser ut
 (text inom `<`vinkelparenteser`>` avser text som användaren matat in).
@@ -426,13 +426,13 @@ Här följer några tips för implementationen.
   olika diskreta steg, "inkrement", där varje steg för någon eller
   några delar av implementationen framåt.
 * Du kan modularisera -- t.ex. skriva hela listan, sedan hela trädet
-  och sedan uppgiften "ovanpå" dessa (du har redan en bra start i 
+  och sedan uppgiften "ovanpå" dessa (du har redan en bra start i
   `db.c`) -- eller arbeta top-down där du först skriver gränssnittet,
   och steg för steg kopplar på funktioner som hanterar den faktiska
-  logiken i programmet. 
+  logiken i programmet.
 * En strukt `goods` är en central datatyp vars definition går att
-  extrahera ur ovanstående. Likaså strukten för varor sparade på 
-  en lagerhylla. Samt träd och listor. 
+  extrahera ur ovanstående. Likaså strukten för varor sparade på
+  en lagerhylla. Samt träd och listor.
 * Det är lämpligt att ha en funktion per alternativ i huvudloopen
   och som ställer alla relevanta underfrågor. Vi kallar dessa för
   gränssnittsfunktioner och de kan vara till exempel:
@@ -470,8 +470,8 @@ Här följer några tips för implementationen.
   `print_goods`, något som sker flera gånger i olika skeden av
   programmet.
 * Både `add_goods` och `edit_goods` kommer att behöva en funktion
-  som kontrollerar *vad* som lagrat på en specifik lagerhylla, för
-  att uppfylla kravet att enbart en vara finns per
+  som kontrollerar *vad* som finns lagrat på en specifik
+  lagerhylla, för att uppfylla kravet att enbart en vara finns per
   lagerhyllsplats. Till exempel funktionen
   `get_goods_for_storage_location`.
 
@@ -485,7 +485,7 @@ detaljerad diskussion.
    implementera programmets huvudloop. På detta vis har du alltid
    ett program som går att köra och det underlättar både
    utveckling och testning.
-2. Definiera struktarna för varuinformation och varor sparade på 
+2. Definiera struktarna för varuinformation och varor sparade på
    hyllplatser. Skriv en funktion som lägger till
    några exempelvaror i databasen genom att direkt skriva till den
    array (eller motsvarande) som håller datat. Detta vill vi göra
@@ -560,5 +560,3 @@ inte räcker med att bara följa förslagen för att bli godkänd.
 5. [W57](http://auportal.herokuapp.com/achievements/57) -- speciellt om du delar upp programmet i flera filer
 6. [A1](http://auportal.herokuapp.com/achievements/1) -- genomgående inslag i denna uppgift
 7. Börja på [C7](http://auportal.herokuapp.com/achievements/7) -- du vill inte behöva efterskapa saker sedan (**Du kan alltså inte redovisa detta redan nu.**)
-
-
