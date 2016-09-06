@@ -822,9 +822,9 @@ _N_ skickas in som ett kommandoradsargument som vanligt.
 
 Fibonacciserien definieras så här:
 
-    fib(1) = 0
-    fib(2) = 1
-    fib(i) = fib(i-1) + fib(i - 2) om i > 2
+    fib(0) = 0
+    fib(1) = 1
+    fib(i) = fib(i-1) + fib(i - 2) om i >= 2
 
 Som synes är definitionen av `fib()` rekursiv -- men vi skall lösa
 den med hjälp av en loop. Använd två variabler `a` och `b` som
