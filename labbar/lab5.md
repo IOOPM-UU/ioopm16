@@ -100,7 +100,7 @@ void cat(char *filename)
 
   while (c != EOF)
   {
-    fputc(stdout, c);
+    fputc(c, stdout);
     c = fgetc(f);
   }
 
@@ -109,7 +109,7 @@ void cat(char *filename)
 
 int main(int argc, char *argv[])
 {
-  if (int argc < 2)
+  if (argc < 2)
   {
     fprintf(stdout, "Usage: %s fil1 ...");
   }
