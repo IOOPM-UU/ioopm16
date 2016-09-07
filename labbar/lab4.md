@@ -1,4 +1,4 @@
-**OBS!!** Om du känner dig stressad -- börja med den fråga som du skall redovisa och hoppa över resten av labben och spara den till senare! **OBS!!** 
+**OBS!!** Om du känner dig stressad -- börja med den fråga som du skall redovisa och hoppa över resten av labben och spara den till senare! **OBS!!**
 
 # Labb 4: Del 1 -- pekare
 
@@ -488,8 +488,8 @@ hjälpfunktion `ask_question_shelf()` för att läsa in en lagerhylla
 och verfiera att formatet är korrekt enligt specifikationen ovan.
 
 Du kommer att behöva en ny kontrollfunktion för lagerhyllor som är
-ganska lik `is_number()` (men enbart första teckenet skall vara en
-siffra). Som konverteringsfunktion fungerar `strdup()` eftersom
+ganska lik `is_number()` (men första teckenet får vara en
+bokstav). Som konverteringsfunktion fungerar `strdup()` eftersom
 representationen för lagerhyllan är en sträng.
 
 
