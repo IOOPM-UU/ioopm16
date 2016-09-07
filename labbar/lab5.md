@@ -74,8 +74,8 @@ inifrån C (istället för att skicka in den utifrån som ovan):
   som kan användas för att läsa från/skriva till beroende på hur
   filen öppnades (`"r"`, etc.).
 * `fclose()` stänger en öppen fil.
-* `fprintf()` fungerar som `printf()` men är inte låst till `stdin`
-  -- `printf(...)`  är ekvivalent med `fprintf(stdin, ...)`. Alltså,
+* `fprintf()` fungerar som `printf()` men är inte låst till `stdout`
+  -- `printf(...)`  är ekvivalent med `fprintf(stdout, ...)`. Alltså,
   `fprintf(fil, ...)` skriver ut på filen `fil`.
 * `fgetc(fil)` läser ett tecken från filen `fil`.
 * `fscanf(fil, ...)` läser som `scanf()` fast från filen `fil`.
