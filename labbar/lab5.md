@@ -1,8 +1,7 @@
 # Labb 5: mer I/O och utökning av `db.c`
 
-:warning: **OBS!** I slutet av den här labben finns instruktioner
-för hur man laddar upp sina resultat på GitHub. **Glöm inte att
-göra det!** :warning:
+:warning: **OBS!** I slutet av den här labben ska du ladda upp
+dina resultat på GitHub. **Glöm inte att göra det!** :warning:
 
 Hittills har vi talat om att läsa och skriva till och från
 terminalen. Lyckligtvis är en grundläggande abstraktion kring I/O
