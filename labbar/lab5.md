@@ -1,5 +1,9 @@
 # Labb 5: mer I/O och utökning av `db.c`
 
+:warning: **OBS!** I slutet av den här labben finns instruktioner
+för hur man laddar upp sina resultat på GitHub. **Glöm inte att
+göra det!** :warning:
+
 Hittills har vi talat om att läsa och skriva till och från
 terminalen. Lyckligtvis är en grundläggande abstraktion kring I/O
 i C baserad på filer -- oavsett om vi skall läsa från
@@ -246,6 +250,66 @@ motsvarande menyval. För ångra-valet skall ett meddelande `Not yet
 implemented!` skrivas ut. Och vid avsluta skall `event_loop()`
 funktionen terminera och programmet avslutas.
 
+### *Ladda upp alla dina labbar på GitHub
+
+Du borde ha fått ett GitHub-konto från oss på en adress som liknar
+`https://github.com/IOOPM-UU/fornamn.efternamn.1234`, där
+`fornamn.efternamn.1234` är ditt student-ID (om du inte har fått
+det,
+följ [dessa instruktioner](http://wrigstad.com/ioopm/github.php)).
+Här ska du ladda upp alla uppgifter som du har redovisat under de
+här veckorna. Det finns många sätt att ladda upp filer till
+GitHub, och här går vi igenom ett sätt att göra det via
+terminalen.
+
+1. Klona ditt repo (om du inte redan har gjort det):
+
+   ```
+   > git clone https://github.com/IOOPM-UU/fornamn.efternamn.1234
+   ```
+
+   Detta skapar en mapp som heter `fornamn.efternamn.1234` som du
+   kan synka med online-versionen på GitHub. Du kan döpa mappen
+   till vad som helst och lägga den var du vill.
+
+2. Kopiera eller flytta över filerna som behövs för att kompilera
+   och köra dina labbar i respektive mapp. Till exempel bör
+   `labbar/lab2` innehålla `guess.c`, `utils.c` samt `utils.h`. Om
+   du har sparat dina gamla labbar i en mapp som heter `ioopm` som
+   ligger i samma mapp som ditt klonade repo kan du köra:
+
+   ```
+   > cp ioopm/lab2/guess.c fornamn.efternamn.1234/labar/lab2/
+   > cp ioopm/lab2/utils.c fornamn.efternamn.1234/labar/lab2/
+   > cp ioopm/lab2/utils.h fornamn.efternamn.1234/labar/lab2/
+   ```
+
+3. För varje labb, gå till respektive mapp och markera att du vill
+   synka dessa med kommandot `git add`. Bunta sedan ihop
+   ändringarna till en "commit" med commandot `git commit`. Till
+   exempel:
+
+   ```
+   > cd fornamn.efternamn.1234/labbar/lab2
+   > ls
+   README.md    utils.c
+   guess.c      utils.h
+   > git add guess.c
+   > git add utils.c
+   > git add utils.h
+   > git commit -m "Lade till labb 2"
+   ```
+
+   Flaggan `-m` används för att ge en beskrivande text till en
+   commit.
+
+4. Slutligen, synka online-versionen med din egen version genom
+   att "knuffa upp" dina ändringar (alltså dina commits) med
+   kommandot `git push`. Nu ska du kunna se ändringarna på GitHub!
+
+Om du vill lära dig mer om Git och GitHub finns det många guider
+online. Du hittar några av dem i
+vårt [länkbibliotek](http://wrigstad.com/ioopm/links.php#git).
 
 ### Utökad vara
 
