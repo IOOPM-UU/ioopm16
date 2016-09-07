@@ -249,7 +249,30 @@ motsvarande menyval. För ångra-valet skall ett meddelande `Not yet
 implemented!` skrivas ut. Och vid avsluta skall `event_loop()`
 funktionen terminera och programmet avslutas.
 
-### *Ladda upp alla dina labbar på GitHub
+### Utökad vara
+
+Utöka definitionen av en vara till att också ha ett antal
+(`amount`) som avser hur många av en vara som lagrats på
+lagerhyllan. Hur går du tillväga för att utöka programmet? Kan C:s
+kompilator hjälpa dig på något sätt?
+
+
+### Frivilligt: stöd för ångra
+
+Implementera stöd för att ångra. Detta omfattar:
+
+1. Vid borttagning, spara det som togs bort
+2. Vid redigering, spara originalet
+3. Vid insättning, spara vilken vara som lades till
+4. Spara alltid vilken som var den senaste handlingen som kan
+   ångras -- du kan t.ex. använda ett heltal för att hålla koll på
+   vad det var för typ av handling (den mest eleganta lösningen
+   involverar funktionspekare)
+5. När användaren väljer ångra, inspektera vilken handling som var
+   den senaste, och ångra den
+6. Om du vill kan du implementera stöd för att ångra själva ångrandet
+
+## *Ladda upp alla dina labbar på GitHub
 
 Du borde ha fått ett GitHub-konto från oss på en adress som liknar
 `https://github.com/IOOPM-UU/fornamn.efternamn.1234`, där
@@ -309,26 +332,3 @@ terminalen.
 Om du vill lära dig mer om Git och GitHub finns det många guider
 online. Du hittar några av dem i
 vårt [länkbibliotek](http://wrigstad.com/ioopm/links.php#git).
-
-### Utökad vara
-
-Utöka definitionen av en vara till att också ha ett antal
-(`amount`) som avser hur många av en vara som lagrats på
-lagerhyllan. Hur går du tillväga för att utöka programmet? Kan C:s
-kompilator hjälpa dig på något sätt?
-
-
-### Frivilligt: stöd för ångra
-
-Implementera stöd för att ångra. Detta omfattar:
-
-1. Vid borttagning, spara det som togs bort
-2. Vid redigering, spara originalet
-3. Vid insättning, spara vilken vara som lades till
-4. Spara alltid vilken som var den senaste handlingen som kan
-   ångras -- du kan t.ex. använda ett heltal för att hålla koll på
-   vad det var för typ av handling (den mest eleganta lösningen
-   involverar funktionspekare)
-5. När användaren väljer ångra, inspektera vilken handling som var
-   den senaste, och ångra den
-6. Om du vill kan du implementera stöd för att ångra själva ångrandet
