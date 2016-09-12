@@ -218,7 +218,7 @@ förutsätta att det finns plats i databasen.
 
 Skriv en funktion `remove_item_from_db()` som tar bort en vara
 från databasen. Använd `list_db()` för att skriva ut databasen och
-samma metod som vid `edit_item()` för att välja vilken vara som
+samma metod som vid `edit_db()` för att välja vilken vara som
 skall tas bort.
 
 När man tar bort något ur en array måste man "skriva över" det man
@@ -244,7 +244,7 @@ att kopiera över 3:an med 4:an, lämna 1 och 2, och minska _as_ med 1.
 
 Skriv en funktion `event_loop()` som anropar `ask_question_menu()`
 och baserat på svaret antingen `add_item_to_db()`,
-`remove_item_from_db()`, `edit_item()`, `list_db()` för
+`remove_item_from_db()`, `edit_db()`, `list_db()` för
 motsvarande menyval. För ångra-valet skall ett meddelande `Not yet
 implemented!` skrivas ut. Och vid avsluta skall `event_loop()`
 funktionen terminera och programmet avslutas.
@@ -331,4 +331,8 @@ terminalen.
 
 Om du vill lära dig mer om Git och GitHub finns det många guider
 online. Du hittar några av dem i
-vårt [länkbibliotek](http://wrigstad.com/ioopm/links.php#git).
+vårt [länkbibliotek](http://wrigstad.com/ioopm/links.php#git). Det
+finns också
+en [kortare lathund](../extramaterial/lathundar/github) med de
+vanligaste Git-kommandona, baserad på en tidigare IOOPM-students
+anteckningar.
