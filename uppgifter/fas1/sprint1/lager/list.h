@@ -1,3 +1,9 @@
+/// !! OBS -- du kommer att behöva ändra lite i denna fil. 
+/// !! Detta är en lista som endast hanterar heltal. Men det 
+/// !! kommer inte att räcka för oss här eftersom vi skall ha
+/// !! andra data (vilka??) i vår (enda) lista. 
+
+
 #ifndef __list_h__
 #define __list_h__
 
