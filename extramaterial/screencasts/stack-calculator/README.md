@@ -4,11 +4,12 @@
 * [Del 2](https://youtu.be/ndrevAdwjgQ) - Stacken får en iterator
 * [Del 3](https://youtu.be/vwvNFKnSXmY) - Vi skriver ett program som använder stacken (och iteratorn)
 
-# Kod till lektion 2
+# Kod
 
 I mappen [finished](finished) ligger en färdig version av hela
-programmet. Lektionen börjar utifrån filerna i rotmappen. (Om man
-vill se koden som Stephan skrev på sin lektion finns den
+programmet. Screencasten börjar utifrån filerna i rotmappen. (Om
+man vill se samma program skrivet av Stephan finns
+koden
 [här](https://gist.github.com/kaeluka/169020abdb4f06a7cc20)).
 
 * `stack.c` och `stack.h` implementerar en generell stack med stöd
