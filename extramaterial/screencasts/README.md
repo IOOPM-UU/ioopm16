@@ -32,6 +32,15 @@ ut det mentalt mot "Haskell".
   - Hur man kopierar strängar i C
   - Hur man jämför strängar i C
 
+* Länkade strukturer (tre delar)
+  - [Del 1](https://youtu.be/1Wtb6nYEoYI) - Vi implementerar en stack
+  - [Del 2](https://youtu.be/ndrevAdwjgQ) - Stacken får en iterator
+  - [Del 3](https://youtu.be/vwvNFKnSXmY) - Vi skriver ett program som använder stacken (och iteratorn)
+
+  Den här screencasten användes som komplement till en
+  lektion 2015. Den utdelade koden hittar du i
+  mappen [stack-calculator](stack-calculator).
+
 ## Screencasts om verktyg
 
 * [Emacs 1](http://www.youtube.com/watch?v=t6Q89QzSMc4)
