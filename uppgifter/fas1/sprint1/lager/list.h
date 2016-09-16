@@ -31,7 +31,7 @@ list_t *list_new();
 /// \param elem the integer to be appended
 void list_append(list_t *list, int elem);
 
-/// Inserts a new element at the end of the list
+/// Inserts a new element at the beginning of the list
 ///
 /// \param list pointer to the list
 /// \param elem the integer to be prepended
