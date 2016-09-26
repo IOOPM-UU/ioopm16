@@ -52,11 +52,11 @@ node_t **find(node_t **n, int k, cmp_func cmp)
   
   if (key_comparison < 0)
     {
-      return find(&((*n)->left), k);
+      return find(&((*n)->left), k, cmp);
     }
   else if (key_comparison > 0)
     {
-      return find(&((*n)->right), k);
+      return find(&((*n)->right), k, cmp);
     }
   else
     {
