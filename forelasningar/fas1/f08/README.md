@@ -81,3 +81,27 @@ bool tree_insert(tree_t *t, void *k, void *v)
     }
 }
 ```
+Det som är speciellt med denna kod -- i jämförelse med vad vi
+tidigare sett på kursen, är användandet av pekare till pekare.
+
+Funktionen find() pekar opererar på en pekare _i_ datastrukturen
+-- inte en pekare _till_ någon nod i datastrukturen. I och med att
+vi hela tiden pekar ut en plats där en pekare finns har vi *både*
+möjlighet att läsa pekaren och därmed komma åt värdet, eller
+skriva pekare, och därmed ändra i datastrukturen.
+
+`t->root` är och `n->right` (el. `left`) har typen `node_t *` där
+`t` är en `tree_t *` och `n` en `node_t *`. De är pekare till
+noder i datastrukturen.
+
+`&(t->root)` och `&(n->right)` är av typen `node_t **`. De är
+pekare till fält i noder i datastrukturen som pekare ut andra
+noder i datastrukturen, ev. NULL.
+
+Om `n` har typen `node_t *` så är `n->key` nyckeln och &(n->key)
+adressen den plats där `n`:s pekare till dess nyckel är sparad.
+
+Om `n` har typen `node_t **` så är `(*n)->key` nyckeln och
+&((*n)->key) adressen den plats där `n`:s pekare till dess nyckel
+är sparad.
+
