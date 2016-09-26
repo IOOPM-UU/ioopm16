@@ -68,7 +68,7 @@ Och så här använder vi den:
 ```c
 bool tree_insert(tree_t *t, void *k, void *v)
 {
-  node_t **n_ptr = find(n, k, cmp);
+  node_t **n_ptr = find(n, k, t->cmp);
 
   if (*n_ptr == NULL)
     {
