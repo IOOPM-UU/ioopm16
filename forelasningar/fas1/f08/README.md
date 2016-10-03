@@ -44,7 +44,7 @@ letar efter -- om den finns. Finns den inte returnerar find
 platsen där denna nod borde ha funnits. Vi kan alltså använda
 find både för att söka och sätta in saker i trädet!
 ```c
-node_t **find(node_t **n, int k, cmp_func cmp)
+node_t **find(node_t **n, void *k, cmp_func cmp) // bugfix 3/10/16 int k ==> void *k
 {
   if (*n == NULL) return n;
 
