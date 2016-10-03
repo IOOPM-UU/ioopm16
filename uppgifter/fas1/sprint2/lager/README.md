@@ -28,20 +28,22 @@ av dessa: förmodligen räcker det med öppna, läsa, skriva och
 stänga. Läs vidare under **Persistens på fil** nedan. Notera att det
 finns olika funktioner för att läsa `int`:ar, strängar, etc.
 
-Vidare skall vi använda oss av C:s inbyggda stöd för sortering för
-att balansera binärträdet som håller i varudatabasen. Du kan
-använda `man qsort` för att läsa om C:s implementation av
-quicksort-algoritmen.
+Balansering av binärträdet kan ske på följande sätt: *(Uppdaterat 2016-10-03)*
 
-Balansering av binärträdet sker på följande sätt:
-
-1. Dumpa trädet i preorder ned i en array. Du kan använda
+1. Dumpa trädet i inorder ned i en array. Du kan använda
    `tree_size()` för att ta reda på hur många element som skall
    finnas i arrayen. Du kan också med fördel använda en generell
    preorder-funktion som tar en funktionspekare för att dumpa
    trädet ned i arrayen.
 2. Skapa ett nytt träd och fyll det med element från arrayen i
    rätt ordning.
+
+Ett mindre direkt alternativ, men som ger oss tillfälle att
+använda oss av C:s inbyggda stöd för sortering för är att:
+
+1. Använda preorder istället för inorder ovan
+2. Använda C:s implementation av quicksort-algoritmen på arrayen, 
+   du kan använda `man qsort` för att läsa om 
 
 Nedan finns ett litet Python-program som bygger upp trädet från en
 sorterad array. Notationen [:] nedan betyder att om `a = [1,2,3,4,5]`
