@@ -25,6 +25,8 @@ _e_, anropar _f(e,d)_. Den kan t.ex. skrivas så här, där
 ```c
 /// list.h
 typedef void(*visit_func)(void *, void *);
+
+/// Besök varje element i listan och utför action på det med data
 void list_visit(list_t *l, visit_func action, void *data);
 
 /// list.c
@@ -45,6 +47,7 @@ hyllplatser för varan och summerar deras antal:
 
 ```c
 /// main.c (eller motsvarande)
+/// Summera antalet varor i shelf-listan för ett item i databasen
 int total_amount(db_t *db, char *item_name)
 {
   int sum = 0;
@@ -67,6 +70,8 @@ i `sum`. Så här ser `add_amount()` ut:
 
 ```c
 /// main.c (eller motsvarande) -- hjälpfunktion
+/// Hjälpfunktion till total_amount
+static
 void add_amount(shelf_t *s, int *sum)
 {
   *sum += s->amount;
@@ -80,6 +85,8 @@ namnet på varan, men kunde lika gärna skriva `NULL` istället för
 
 ```c
 /// main.c (eller motsvarande) -- hjälpfunktion
+/// Hjälpfunktion till print_shelves
+static
 void print_shelf(shelf_t *s, char *item_name)
 {
   printf("Shelf %s holds %d %s\n", s->shelf_name, s->amount, item_name);
@@ -91,6 +98,10 @@ void print_shelves(item_t *i)
   list_visit(i->shelves, (visit_func) print_shelf, i->name);
 }
 ```
+
+Hjälpfunktionerna ovan är deklarerade som `static`. Det betyder
+att de är "dolda" och inte syns utanför de `.c`-filer som 
+innehåller dem, och det skulle vara fel att lista dem i `.h`-filen. 
 
 
 ## Iterator
@@ -107,8 +118,13 @@ Vi utökar `list.h` enligt följande:
 /// i list.h
 typedef struct iter iter_t;
 
+/// Skapar en ny iterator för en given lista
 iter_t list_iterator(list_t *l);
+
+/// Kontrollerar om det finns mer att hämta ur listan
 bool iter_has_next(iter_t iter);
+
+/// Hämtar nästa element i listan
 void *iter_next(iter_t *iter);
 ```
 
@@ -120,19 +136,16 @@ struct iter
   node_t *current;
 };
 
-/// Skapar en ny iterator för en given lista
 iter_t list_iterator(list_t *l)
 {
   return (iter_t) { .current = l->first };
 }
 
-/// Kontrollerar om det finns mer att hämta ur listan
 bool iter_has_next(iter_t iter)
 {
   return iter.current->next != NULL;
 }
 
-/// Hämtar nästa element i listan
 void *iter_next(iter_t *iter)
 {
   void *elem = iter->current->elem;
@@ -305,3 +318,74 @@ Nu går det bra att skriva `iter_next(iter)` eftersom det översätts
 till `_iter_next(&iter)`. Koden blir mer uniform, och användaren 
 av iteratorn behöver inte fundera på när överföring skall ske med
 värdesemantik respektive med pekarsemantik.
+
+
+## Listor med dummy-noder
+
+För att förenkla implementationer kan man ibland använda sig av
+extra-data som egentligen inte behövs men som reducerar antalet
+specialfall. En länkad lista, t.ex. kan med fördel ha en dummy-nod
+i början listan, som alltid är tom. 
+
+Ponera en vanlig länkad lista utan dummy-noder. Så här skulle en
+insert-funktion kunna se ut. Den har två fall, ett för första
+elementet och ett för alla andra element (bortser från
+`last`-pekare i detta exempel för enkelhets skull). 
+
+```c
+void list_insert(list_t *l, int idx, void *elem)
+{
+  if (idx == 0)
+    {
+      // Fall 1: insättning först i listan -- peka om list->first
+      l->first = node_new(elem, l->first);
+    }
+  else
+    {
+      // Fall 2: insättning inuti listan -- peka om föregående nods next
+      node_t *cursor = l->first;
+      for (int i = 1; i < idx && cursor; ++i)
+        {
+          cursor = cursor->next; 
+        }
+      if (cursor) cursor->next = node_new(elem, cursor->next);
+    }
+}
+```
+
+Om vi ser till att listan alltid börjar med en tom nod försvinner
+det första specialfallet, och vi kan förenkla implementationen
+avsevärt:
+
+```c
+void list_insert(list_t *l, int idx, void *elem)
+{
+  // Enda fall: insättning "inuti" listan -- peka om föregående nods next
+  node_t *cursor = l->first;
+  for (int i = 0; i < idx && cursor; ++i)
+    {
+      cursor = cursor->next; 
+    }
+  if (cursor) cursor->next = node_new(elem, cursor->next);
+}
+```
+
+Notera att det är exakt samma förenkling som uppstår när man byter
+från pekare till noder till dubbelpekare -- alltså en pekare till
+en plats där en pekare till en nod finns:
+
+```c
+void list_insert(list_t *l, int idx, void *elem)
+{
+  // Enda fall: peka om den pekare som pekar ut 
+  //            den plats där nya noden skall in
+  node_t **n_ptr = &(l->first);
+
+  for (int i = 0; i < idx && *n_ptr; ++i)
+    {
+      n_ptr = &((*n_ptr)->next); 
+    }
+
+  if (*n_ptr) *n_ptr = node_new(elem, *n_ptr);
+}
+```
