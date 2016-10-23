@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#define coin_flip() (rand() % 2)
-
 // The element type in the array
 #define chunk_type_t uint64_t
 // How many bits in an element
@@ -25,6 +23,7 @@ struct set
   chunk_type_t elements[]; /// Fancy C99-trick, avoids two allocations
 };
 
+/// Should move to set.h ////////////////////////////////////
 typedef struct set set_t;
 
 set_t *set_new(int size);
@@ -33,6 +32,8 @@ void set_add(set_t *s, int element);
 void set_remove(set_t *s, int element);
 bool set_has(set_t *s, int element);
 void set_free(set_t *s);
+// more functions should be added here
+/// end of set.h
 
 /// Create a new set with support for elements [0,size-1]
 /// (Note the trick with only using one allocation)
@@ -50,6 +51,7 @@ size_t set_size(set_t *const s)
   return s->size;
 }
 
+/// Private function. First implementation attempt of set_members.
 static inline size_t set_members1(set_t *const s)
 {
   size_t sum = 0;
@@ -63,6 +65,7 @@ static inline size_t set_members1(set_t *const s)
   return sum;
 }
 
+/// Private function. Second implementation attempt of set_members.
 static inline size_t set_members2(set_t *const s)
 {
   size_t sum = 0;
@@ -192,6 +195,7 @@ void set_delete(set_t *s)
   free(s);
 }
 
+/// Debug for printing a set 
 void set_print(set_t *const s)
 {
   bool sep = false;
@@ -208,8 +212,13 @@ void set_print(set_t *const s)
   printf(" }\n");
 }
 
+// Not part of the bitset, used for the main function /////////////////////////////////////////////
+
+#define coin_flip() (rand() % 2)
+
 #define Size (16 * 1024 * 1024)
 
+/// Stupid program that can be used to do some minimal profiling
 int main(void)
 {
   set_t *a = set_new(Size);
