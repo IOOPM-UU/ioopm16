@@ -63,12 +63,12 @@ med C om `struct die` inte var definierad i `.h`-filen.
 ```
 
 Det här är tärningens två konstruktorer, metoderna som anropas när
-ett nytt objekt skapas. Notera att det inte finns någon returtyp,
-vilket är hur man känner igen en konstruktor. Anropet `new Die()`
-kommer att köra den första konstruktorn (och alltså sätta antalet
-sidor till 6), medan `new Die(42)` kommer att köra den andra. När
-det finns flera konstruktorer så här pratar man om *överlagrade*
-konstruktorer.
+ett nytt objekt skapas. Notera att det inte finns någon returtyp
+och att metoden heter samma sak som klassen. Det är så man känner
+igen en konstruktor. Anropet `new Die()` kommer att köra den
+första konstruktorn (och alltså sätta antalet sidor till 6), medan
+`new Die(42)` kommer att köra den andra. När det finns flera
+konstruktorer så här pratar man om *överlagrade* konstruktorer.
 
 ```java
   public int roll() {
@@ -135,7 +135,10 @@ ett eget antal sidor och ett värde, men det finns bara en enda
    ```
 
    Ändra i `Die.java` så att det inte går att skapa tärningsobjekt
-   med ett orimligt antal sidor!
+   med ett orimligt antal sidor! Fundera på om programmet borde
+   krascha eller om det tyst ska sätta antalet sidor till något
+   vettigt. Om du vill använda `assert` i Java måste du köra
+   programmet med `java -ea Die` eller `java -enableassertions Die`.
 4. Vad ger koden
 
    ```
@@ -153,10 +156,10 @@ ett eget antal sidor och ett värde, men det finns bara en enda
 
    och se vad det då blir för utskrift. Fundera över varför!
 
-5. Lägg till en metod med signaturen `boolean equals(Die otherDie)`
-som returnerar `true` om tärningarna "är likadana" (vad betyder
-det?), annars `false`. Tänk också på skillnaden mellan "samma
-tärning" och "likadana tärningar".
+5. Lägg till en metod i klassen `Die` med signaturen `boolean
+equals(Die otherDie)` som returnerar `true` om tärningarna "är
+likadana" (vad betyder det?), annars `false`. Tänk också på
+skillnaden mellan "samma tärning" och "likadana tärningar".
 
 6. Skriv en klass `PairOfDice` som representerar ett tärningspar.
 Klassen skall använda sig av ("aggregera" med OO-terminologi)
@@ -173,8 +176,8 @@ Operationer som skall finnas:
    [online-dokumentationen](https://docs.oracle.com/javase/8/docs/api/)
    för Javas klass-API (JDK) och skumma dokumentationen för
    `String`-klassen. Läs om `compareTo`-metoden och skriv sedan
-   ett program som läser in två namn i strängform (med hjälp av
-   `Scanner`-klassen) och skriver ut dem i bokstavsordning.
+   ett nytt program som läser in två namn i strängform (med hjälp
+   av `Scanner`-klassen) och skriver ut dem i bokstavsordning.
 
 8. *Frivilligt, men rekommenderas (Speciellt till dig som redan
     kan programmera Java)!* - Skriv ett lämpligt driver-program
@@ -219,5 +222,12 @@ den här delen tills arv har tagits upp på en föreläsning.
    `boolean equals(Object other)`. Skriv om `equals` så att den
    kan anropas med argument av godtycklig typ. Du kan använda
    operatorn `instanceof` för att ta reda på om ett värde är (en
-   subtyp av) en viss klass (men det här är en av få vettiga
+   subtyp av) en viss klass (men det här är ett av få vettiga
    tillfällen att använda `instanceof`!).
+
+## Mer övning?
+
+Om du vill öva mer på Java finns det övningsuppgifter i kursens
+[extramaterial](../../../../extramaterial/ovningar). Du kan
+förstås också börja med någon av Java-uppgifterna för Fas 2,
+Sprint 1.

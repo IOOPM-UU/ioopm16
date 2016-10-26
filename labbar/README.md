@@ -1,3 +1,5 @@
+Letar du efter "kom-igång-uppgiften" i Java? Den hittar du [här](../uppgifter/fas2/sprint1/komigang/)!
+
 # Introduktionslabbar
 
 Välkommen till Adams Weckor! De här två första veckorna är till
@@ -24,19 +26,19 @@ och ner.
 
 Ja. Nej. Nja. Det är obligatoriskt att göra dem, men inte att göra
 dem på plats. Redovisning är enbart möjligt på plats, men alla labbar
-finns ute från dag 1 och kan göra när som helst. 
+finns ute från dag 1 och kan göra när som helst.
 
 
-### Måste jag arbeta med någon annan? 
+### Måste jag arbeta med någon annan?
 
 Ja. Nej. Nja. Det är **bra** att arbeta i par om två -- dels för att
-du kommer att göra det senare under kursen, men också för att det 
+du kommer att göra det senare under kursen, men också för att det
 ofta främjar reflektion när man sitter med någon annan och måste prata
 om vad man håller på med och inte "bara göra det". Det viktigaste är
 att varje enskild person har varit med och gjort allt som labbarna
 innehåller. Om du jobbar själv händer det automagiskt. Om du jobbar
 med någon annan måste du se till att vara 50% av tiden framför
-tangentbordet! **Du kommer inte att lära dig programmering om du 
+tangentbordet! **Du kommer inte att lära dig programmering om du
 låter någon annan skriva all kod!!!***
 
 
