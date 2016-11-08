@@ -233,7 +233,7 @@ public abstract class Unary extends Sexpr {
 
 Uttryck byggs av en parser som implementerar *recursive descent*.
 liksom den från
-[screencasten](../../../../extramaterial/screencasts/fas2/) i
+[screencasten](../../../../extramaterial/screencasts) i
 ämnet. Den modifieras nu så att varje metod som förut returnerade
 ett tal (en `double`) nu returnerar en *referens till en skapad
 nod* (alltså en `Sexpr`). Du hittar originalkoden på samma ställe
