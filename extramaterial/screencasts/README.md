@@ -74,6 +74,14 @@ ut det mentalt mot "Haskell".
   [35 minuter] - Hands-on genomgång av hur man kan profilera och
   optimera ett program i Netbeans
 
+## Screencasts om Java
+
+* [Samlingsklasser och Avbildningsklasser (aka Collections and Maps)](http://www.youtube.com/watch?v=Z5B0H8ymdes)
+  [17 minuter]
+
+* [Recursive Descent](http://www.youtube.com/watch?v=JTs96vLXrEw)
+  [35 minuter]
+
 ## Nya screencasts
 
 Det kan komma flera screencasts under kursens gång. I så fall
