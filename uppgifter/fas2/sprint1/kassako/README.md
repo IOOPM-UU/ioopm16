@@ -124,6 +124,12 @@ Förutom en konstruktor behövs (åtminstone) följande metoder:
   kön.
 * `first()` - Returnera (men ta inte bort) kunden som står först i
   kön.
+  
+I en "riktig" implementation skulle det vara vettigt att till 
+exempel använda Javas `LinkedList` även för kön, men eftersom 
+vi vill att ni ska få övning i att implementera datastrukturer 
+även i Java måste du implementera hela strukturen själv. I andra
+delar av programmet är det okej att använda standardbiblioteket!
 
 ## Klassen `Store`
 
