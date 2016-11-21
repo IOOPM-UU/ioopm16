@@ -13,7 +13,7 @@ public class List<T> implements java.lang.Iterable<T> {
         }
     }
 
-    public static class BadIndexException extends Exception {
+    public static class BadIndexException extends RuntimeException {
         public BadIndexException(String msg) {
             super(msg);
         }
@@ -22,6 +22,8 @@ public class List<T> implements java.lang.Iterable<T> {
     /// Dummy object always first in list
     private final Link<T> first = new Link<T>(null);
     private Link<T> last = first;
+
+    public List() {}
 
     public List(T element) {
         this.prepend(element);
@@ -40,7 +42,7 @@ public class List<T> implements java.lang.Iterable<T> {
     public T get(int index) throws BadIndexException {
         Iterator<T> iter = this.iterator();
 
-        for (int i = 1; iter.hasNext() && i < index; ++i) iter.next();
+        for (int i = 0; iter.hasNext() && i < index; ++i) iter.next();
 
         if (iter.hasNext()) {
             return iter.next();
@@ -116,7 +118,7 @@ public class List<T> implements java.lang.Iterable<T> {
         }
 
         public void remove() {
-            throw new NotimplementedException("remove()");
+            current.next = current.next.next;
         }
     }
 }
