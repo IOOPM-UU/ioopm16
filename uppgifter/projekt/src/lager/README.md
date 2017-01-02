@@ -11,7 +11,14 @@ This program is not guaranteed to be bug free, although no bugs
 have been added on purpose.
 
 
+# Building the program
 
+    make db
+    
+# Running the program
+
+    ./db
+    
 # Other notes
 
 The file `gc_perf_test.c` is not part of the warehouse program.
