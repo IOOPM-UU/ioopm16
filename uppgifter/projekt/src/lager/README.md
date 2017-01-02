@@ -9,3 +9,9 @@ Notably, the program supports multiple steps of undo.
 
 This program is not guaranteed to be bug free, although no bugs
 have been added on purpose.
+
+
+
+# Other notes
+
+The file `gc_perf_test.c` is not part of the warehouse program.
