@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include <alloca.h>
 #include "db.h"
 #include "list.h"
 
