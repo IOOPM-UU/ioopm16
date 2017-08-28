@@ -1,3 +1,5 @@
+# OBS! Detta är kursrepot för 2016. Du vill med största sannolikhet till [repot för 2017](https://github.com/IOOPM-UU/ioopm17).
+
 IOOPM 2016
 ==========
 
